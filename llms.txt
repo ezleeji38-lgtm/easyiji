@@ -7,11 +7,15 @@
 ## 주요 페이지
 
 - [홈](https://easyiji.netlify.app/): 소개, 프로그램, 음반·음원, 저서, 이력, 강의 문의
-- [이지 자료실](https://easyiji.netlify.app/news.html): AI 도구툴, AI 교육소식, AI 수업설계, AI 교회사역, 행정, 공지
+- [이지 자료실](https://easyiji.netlify.app/news.html): AI 도구툴, AI 교육소식, AI 수업설계, AI 창작, AI 교회사역, 행정, 공지
 
 ## 자료실 글
 
 - [초등학생도 AI를 체험할 수 있을까? 클릭온 AI 시즌2, 11월 25일까지](https://easyiji.netlify.app/news/click-on-ai-season2.html): 과기정통부·교육부 온라인 AI 체험 행사 클릭온 AI 시즌2의 참여 방법, 학년별 프로그램, 수업 활용법 정리 (2026-10-23)
+- [AI로 만든 노래도 저작권료를 받을 수 있을까? 2026년 가을 현재 상황 정리](https://easyiji.netlify.app/news/ai-music-royalty-2026.html): 음저협 AI 의심 음원 240억원 저작권료 보류, AI 활용곡 등록 기준 철회, 스포티파이의 AI 음원 정리와 창작자·강사가 챙길 것 (2026-10-23)
+- ['자비스'에 한 걸음 더: 앱을 닫아도 일하는 AI 비서는 무엇이 다른가](https://easyiji.netlify.app/news/claude-duet.html): Anthropic의 상시 AI 에이전트 Claude Duet이 혼자 하는 일과 사람에게 묻는 일, 이용 조건, 지금 준비할 것 (2026-10-23)
+- [인문학자·신학자·목회자에게 묻는 AI 시대 교회의 길, 10월 26일 세미나](https://easyiji.netlify.app/news/ncck-ai-church-seminar.html): NCCK 에큐메니칼 세미나 「A.I의 시대, 길을 묻다」(10월 26일) 일시·장소와 교회학교·소그룹 토론 질문 (2026-10-23)
+- [AI 교과서는 어디로 갔나: 교육자료 전환 1년여, 숫자로 보는 학교 현장](https://easyiji.netlify.app/news/ai-digital-textbook-2026.html): AI 디지털교과서의 교육자료 전환(2025.8.14 시행)과 활용 학교 4,095곳→622곳 감소, AI 과목 교과서와의 차이 (2026-10-23)
 - [학교에 AI 교과서가 들어올까? 2028년 3월 도입 예정, 정부 방침 한눈에](https://easyiji.netlify.app/news/ai-textbook-2028.html): 교육부 AI 교과 인정교과서 추진, AI 중점학교 확대, AI 온이음 사업 정리 (2026-10-23)
 
 ## Optional
