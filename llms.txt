@@ -7,10 +7,11 @@
 ## 주요 페이지
 
 - [홈](https://easyiji.netlify.app/): 소개, 프로그램, 음반·음원, 저서, 이력, 강의 문의
-- [이지 자료실](https://easyiji.netlify.app/news.html): AI 소식, 수업 레시피, 무료 자료, AI 도구 체크, 공지
+- [이지 자료실](https://easyiji.netlify.app/news.html): AI 도구툴, AI 교육소식, AI 수업설계, AI 교회사역, 행정, 공지
 
 ## 자료실 글
 
+- [초등학생도 AI를 체험할 수 있을까? 클릭온 AI 시즌2, 11월 25일까지](https://easyiji.netlify.app/news/click-on-ai-season2.html): 과기정통부·교육부 온라인 AI 체험 행사 클릭온 AI 시즌2의 참여 방법, 학년별 프로그램, 수업 활용법 정리 (2026-10-23)
 - [학교에 AI 교과서가 들어올까? 2028년 3월 도입 예정, 정부 방침 한눈에](https://easyiji.netlify.app/news/ai-textbook-2028.html): 교육부 AI 교과 인정교과서 추진, AI 중점학교 확대, AI 온이음 사업 정리 (2026-10-23)
 
 ## Optional

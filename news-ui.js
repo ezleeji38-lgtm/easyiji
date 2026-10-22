@@ -20,19 +20,27 @@
     var list=document.getElementById(opt.list),chips=document.getElementById(opt.chips);if(!list)return;
     var items=data.slice().sort(function(a,b){return a.date<b.date?1:a.date>b.date?-1:0}),cur='전체';
     var cats=(window.CATEGORIES||[]).slice();items.forEach(function(n){if(cats.indexOf(n.category)<0)cats.push(n.category)});
+    cats=cats.filter(function(c){return items.some(function(n){return n.category===c})}); /* 글이 없는 분류는 첫 글이 올라올 때까지 숨깁니다 */
     function paint(){list.innerHTML='';
       var shown=items.filter(function(n){return cur==='전체'||n.category===cur});if(opt.limit)shown=shown.slice(0,opt.limit);
       if(!shown.length){list.appendChild(el('p','nl-empty','아직 이 분류의 소식이 없습니다.'));return}
       shown.forEach(function(n){var a=el('article','nl-item');a.id=n.id;
-        if(n.image&&/^img\//.test(n.image)){var f=el('figure','nl-fig'),im=el('img');im.src=n.image;im.alt=n.imageAlt||'';im.loading='lazy';im.width=1600;im.height=900;f.appendChild(im);if(n.caption)f.appendChild(el('figcaption','',n.caption));a.appendChild(f)}
+        if(n.image&&/^img\//.test(n.image)){var f=el('figure','nl-fig'),im=el('img');im.src=n.image;im.alt=n.imageAlt||'';im.loading='lazy';im.width=1600;im.height=900;
+          if(n.link&&/^news\//.test(n.link)){var ia=el('a','nl-fig-link');ia.href=n.link;ia.setAttribute('aria-label',n.title+' 전체 글 읽기');ia.appendChild(im);f.appendChild(ia)}else f.appendChild(im);
+          if(n.caption)f.appendChild(el('figcaption','',n.caption));a.appendChild(f)}
         var m=el('div','nl-meta');m.appendChild(el('span','nl-cat',n.category));var tm=el('time','',fmt(n.date));tm.setAttribute('datetime',n.date);m.appendChild(tm);
         a.appendChild(m);a.appendChild(el('h3','',n.title));if(n.summary)a.appendChild(el('p','nl-sum',n.summary));
         var d=el('details');d.appendChild(el('summary','','본문 읽기'));var b=el('div','nl-body');
         (n.body||[]).forEach(function(p){b.appendChild(el('p','',p))});
         if(n.link&&/^(https?:\/\/|files\/|news\/)/.test(n.link)){var l=el('a','nl-link',(n.linkLabel||'자세히 보기')+' →');l.href=n.link;if(!/^news\//.test(n.link)){l.target='_blank';l.rel='noopener'}b.appendChild(l)}
         d.appendChild(b);a.appendChild(d);if(location.hash==='#'+n.id)d.open=true;list.appendChild(a)})}
-    if(chips){chips.innerHTML='';['전체'].concat(cats).forEach(function(c){var btn=el('button','nl-chip',c);btn.type='button';btn.setAttribute('aria-pressed',String(c===cur));
-      btn.onclick=function(){cur=c;chips.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',String(x.textContent===cur))});paint()};chips.appendChild(btn)})}
+    if(chips){chips.innerHTML='';chips.style.setProperty('--cols',cats.length>4?3:Math.max(cats.length,1));var info=window.CATEGORY_INFO||{};['전체'].concat(cats).forEach(function(c){
+      var mine=items.filter(function(n){return c==='전체'||n.category===c}),btn=el('button','nl-catcard'),top=el('span','nl-cc-top');
+      btn.type='button';btn.setAttribute('aria-pressed',String(c===cur));btn.setAttribute('data-cat',c);
+      top.appendChild(el('b','',c));top.appendChild(el('span','nl-cc-n',mine.length+'건'));btn.appendChild(top);
+      if(info[c])btn.appendChild(el('span','nl-cc-desc',info[c]));
+      btn.appendChild(el('span','nl-cc-new',mine.length?'최신 · '+mine[0].title:'아직 글이 없습니다'));
+      btn.onclick=function(){cur=c;chips.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',String(x.getAttribute('data-cat')===cur))});paint()};chips.appendChild(btn)})}
     paint();
     if(location.hash){var t=document.getElementById(location.hash.slice(1));if(t)setTimeout(function(){t.scrollIntoView({block:'start'})},50)}
   }
