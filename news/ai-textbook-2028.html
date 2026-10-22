@@ -25,37 +25,56 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&display=swap">
 <link rel="stylesheet" href="../style.css">
 <style>
-.post{max-width:720px;margin:0 auto}
-.post-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:14px;color:var(--muted);margin-bottom:14px}
-.post h1{font-size:clamp(28px,4.6vw,40px);line-height:1.3;margin:0 0 22px;text-wrap:balance}
-/* 읽기 편하게: 본문 17px, 줄간격 2.0, 문단·소제목 사이를 넉넉히 */
-.post h2{font-size:clamp(22px,2.6vw,25px);line-height:1.45;margin:60px 0 20px;padding-top:28px;border-top:1px solid var(--line);text-wrap:balance}
-.post p{margin:0 0 22px;font-size:17px;line-height:2}
-.post .answer{font-size:18px;line-height:1.95;background:var(--blue-t);border-radius:var(--r);padding:24px 26px;margin-bottom:32px}
+/* 노트형 글: 핵심 요약 → 그림 → 한눈에 보기 → 번호 붙은 소제목 → 챙길 것 → 참고 자료 → 쓴 사람 → 함께 읽을 글 */
+.post{max-width:760px;margin:0 auto}
+.crumb{margin:0 0 12px;font-size:14px;font-weight:700;color:var(--blue)}
+.post h1{font-size:clamp(28px,4.6vw,40px);line-height:1.35;margin:0 0 14px;text-wrap:balance}
+.post .dates{margin:0 0 26px;font-size:14px;line-height:1.7;color:var(--muted)}
+.summary{background:var(--blue-t);border-radius:16px;padding:22px 26px;margin:0 0 32px}
+.summary b{display:block;font-size:14px;letter-spacing:.04em;color:var(--blue);margin-bottom:8px}
+.post .summary ol{margin:0;padding-left:20px;display:grid;gap:8px}
+.post .summary li{margin:0;font-size:16.5px;line-height:1.85;color:var(--ink)}
 .post figure{margin:0 0 32px}
-.post figure img{display:block;width:100%;height:auto;border-radius:var(--r);border:1px solid var(--line)}
+.post figure img{display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--line)}
 .post figcaption{font-size:13px;color:var(--muted);margin-top:8px}
 .facts-wrap{overflow-x:auto;margin-bottom:8px}
 .facts{width:100%;border-collapse:collapse;font-size:16px;line-height:1.7}
 .facts th,.facts td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
 .facts th{width:24%;color:var(--muted);font-weight:600;white-space:nowrap}
+/* 읽기 편하게: 본문 17px, 줄간격 2.0, 소제목 위에 굵은 선 */
+.post h2{font-size:clamp(23px,3vw,28px);line-height:1.4;margin:60px 0 18px;padding-top:24px;border-top:1.5px solid var(--ink);text-wrap:balance}
+.post p{margin:0 0 22px;font-size:17px;line-height:2}
+.post ol,.post ul.points{padding-left:24px;margin:0 0 26px}
+.post li{margin-bottom:18px;font-size:17px;line-height:1.95}
+.post ol>li>b:first-child,.post ul.points>li>b:first-child{display:block;margin-bottom:4px;color:var(--ink)}
+.post ol:not(.sources)>li a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
 .timeline{border-left:2px solid var(--line);margin:0 0 18px 6px;padding:0}
 .timeline li{list-style:none;position:relative;padding:0 0 18px 22px}
 .timeline li:before{content:"";position:absolute;left:-8px;top:8px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--blue)}
 .timeline li.now:before{background:var(--blue)}
 .timeline b{display:block;color:var(--blue)}
-.post ol,.post ul.points{padding-left:24px;margin:0 0 26px}
-.post li{margin-bottom:18px;font-size:17px;line-height:1.95}
-.post ol>li>b:first-child,.post ul.points>li>b:first-child{display:block;margin-bottom:4px;color:var(--ink)}
-.faq dt{font-weight:700;font-size:17px;color:var(--ink);margin-top:26px}
-.faq dd{margin:6px 0 0;font-size:17px;line-height:1.95}
-.src{border-top:1px solid var(--line);margin-top:56px;padding-top:24px;font-size:14px;line-height:1.8;color:var(--muted)}
-.src ul{padding-left:18px;margin:10px 0 0}
-.src li{margin-bottom:8px;font-size:14px;line-height:1.8}
-.src a{color:var(--blue);word-break:break-all}
-.author{background:var(--mist);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;margin-top:32px;font-size:15px;line-height:1.85;color:var(--muted)}
-.author b{display:block;color:var(--ink);font-size:17px;margin-bottom:4px}
-.back{margin-top:36px;display:flex;gap:10px;flex-wrap:wrap}
+.note-box{border-left:3px solid var(--blue);background:var(--mist);padding:16px 20px;border-radius:0 12px 12px 0;margin:0 0 24px;font-size:16px;line-height:1.95;color:var(--text)}
+.note-box b{color:var(--ink);margin-right:8px}
+.post .check{list-style:none;padding:0;margin:0 0 24px}
+.post .check li{position:relative;margin:0;padding:12px 0 12px 32px;border-bottom:1px solid var(--line);font-size:16.5px;line-height:1.8}
+.post .check li::before{content:"";position:absolute;left:2px;top:19px;width:14px;height:14px;border:1.5px solid var(--blue);border-radius:4px}
+.post .sources{padding-left:22px;margin:0 0 14px}
+.post .sources li{margin-bottom:8px;font-size:14.5px;line-height:1.75;color:var(--muted)}
+.sources a{color:var(--ink);word-break:break-word}
+.sources a:hover{color:var(--blue)}
+.post .src-note{font-size:14px;line-height:1.8;color:var(--muted)}
+.author{margin-top:64px;border:1.5px solid var(--ink);border-radius:20px;padding:26px;display:grid;gap:10px}
+.post .author p{margin:0;font-size:15px;line-height:1.8;color:var(--muted)}
+.post .author .label{font-size:13px;font-weight:700;color:var(--blue)}
+.post .author .who{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+.author .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.more{margin-top:48px}
+.post .more-h{margin:0 0 12px;font-size:20px;font-weight:700;line-height:1.5;color:var(--ink)}
+.more ul{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.post .more li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.6}
+.more li a:hover{color:var(--blue)}
+.more li span{color:var(--muted);font-size:13px;white-space:nowrap}
+@media (max-width:560px){.summary{padding:20px}.author{padding:22px}.post .more li{flex-direction:column;gap:2px}}
 </style>
 <script type="application/ld+json">
 {
@@ -65,7 +84,10 @@
       "@type": "Person",
       "@id": "https://easyiji.netlify.app/#person",
       "name": "이지연",
-      "alternateName": ["ezsy 이지", "Lee Jiyeon"],
+      "alternateName": [
+        "ezsy 이지",
+        "Lee Jiyeon"
+      ],
       "jobTitle": "AI융합 예술교육가",
       "description": "중학교 보컬동아리 강사, 안양 지역 초등학교 늘봄 음악놀이 강사, 생성형 AI 강의자, Georgia Central University 대학원 AI융합경영학 박사과정",
       "url": "https://easyiji.netlify.app/"
@@ -78,20 +100,14 @@
       "dateModified": "2026-10-23",
       "inLanguage": "ko-KR",
       "image": "https://easyiji.netlify.app/img/og-ai-textbook-2028.jpg",
-      "author": { "@id": "https://easyiji.netlify.app/#person" },
-      "publisher": { "@id": "https://easyiji.netlify.app/#person" },
+      "author": {
+        "@id": "https://easyiji.netlify.app/#person"
+      },
+      "publisher": {
+        "@id": "https://easyiji.netlify.app/#person"
+      },
       "mainEntityOfPage": "https://easyiji.netlify.app/news/ai-textbook-2028.html",
       "articleSection": "AI 교육소식"
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "AI 교과서는 언제부터 학교에서 쓰나요?", "acceptedAnswer": { "@type": "Answer", "text": "교육부는 2027년 1학기 시범 적용과 인정 심의를 거쳐 2028년 3월부터 전국 학교에 도입할 예정이라고 밝혔습니다." } },
-        { "@type": "Question", "name": "AI 디지털교과서와 같은 건가요?", "acceptedAnswer": { "@type": "Answer", "text": "다릅니다. 이번 발표는 AI를 배우는 과목의 교과서이고, AI 디지털교과서는 수학·영어 같은 기존 과목 교과서에 AI 기능을 넣은 것이었습니다." } },
-        { "@type": "Question", "name": "누가 교과서를 만드나요?", "acceptedAnswer": { "@type": "Answer", "text": "현장 교원이 집필진으로 참여하고, 교육부·과학기술정보통신부·10개 시도교육청이 함께 추진합니다." } },
-        { "@type": "Question", "name": "AI 중점학교는 몇 곳으로 늘어나나요?", "acceptedAnswer": { "@type": "Answer", "text": "발표 당시 730개교에서 2028학년도까지 2,000개교로 늘릴 계획입니다." } },
-        { "@type": "Question", "name": "AI 온이음은 누구를 위한 사업인가요?", "acceptedAnswer": { "@type": "Answer", "text": "교육급여 수급 등 취약계층 고등학생과 농어촌 고등학교 학생 약 12만 명이 대상이며, 학교 담당 교사를 통해 신청을 받았습니다." } }
-      ]
     }
   ]
 }
@@ -107,10 +123,17 @@
 <main>
 <section class="section" style="padding-top:56px">
 <article class="wrap post">
-  <div class="post-meta"><span class="nl-cat">AI 교육소식</span><time datetime="2026-10-23">2026. 10. 23</time><span>글 이지연</span></div>
+  <p class="crumb">이지 자료실 · AI 교육소식</p>
   <h1>학교에 AI 교과서가 들어올까? 2028년 3월 도입 예정, 정부 방침 한눈에</h1>
-
-  <p class="answer">네, 들어올 예정입니다. 교육부는 2026년 8월 27일, 초·중·고 AI 관련 16개 과목의 교과서를 현장 교원이 직접 집필해 2027년 1학기 시범 적용과 인정 심의를 거친 뒤 2028년 3월부터 전국 학교에 도입할 예정이라고 밝혔습니다. 같은 흐름에서 AI 중점학교를 2028학년도까지 2,000개교로 늘리고, 형편이 어려운 고등학생에게 AI 서비스를 지원하는 사업도 시작했습니다.</p>
+  <p class="dates"><time datetime="2026-10-23">2026년 10월 23일</time> 작성 · 글 이지연 · 교육부 보도자료(2026.8.27, 8.19)와 정책브리핑(2025.11.10) 기준</p>
+  <div class="summary">
+    <b>핵심 요약</b>
+    <ol>
+      <li>교육부는 초·중·고 AI 관련 16개 과목의 인정교과서를 현장 교원이 집필해, 2027년 1학기 시범 적용과 인정 심의를 거쳐 2028년 3월 전국 학교에 도입할 예정입니다.</li>
+      <li>이 교과서는 AI를 배우는 과목의 교과서로, 기존 과목 교과서에 AI 기능을 넣은 'AI 디지털교과서'와 다릅니다.</li>
+      <li>AI 중점학교는 2028학년도까지 2,000개교로 늘어나고, 취약계층·농어촌 고등학생 약 12만 명에게 생성형 AI 서비스와 교육을 지원하는 「AI 온이음」 사업도 시작했습니다.</li>
+    </ol>
+  </div>
 
   <figure>
     <img src="../img/ai-textbook-2028.webp" alt="교실 책상 위에 펼쳐진 책에서 빛줄기가 솟아올라 말풍선, 빛나는 점, 막대그래프 아이콘으로 이어지는 일러스트" width="1600" height="900">
@@ -124,77 +147,71 @@
     <tr><th>발표</th><td>교육부 보도자료, 2026년 8월 27일</td></tr>
   </table></div>
 
-  <h2>AI 교과서는 무엇인가요?</h2>
+  <h2>1. AI 교과서는 AI를 배우는 과목의 교과서</h2>
   <p>여기서 말하는 AI 교과서는 AI 자체를 배우는 과목의 교과서입니다. 교육부는 공모를 거쳐 초·중·고 AI 관련 16개 과목을 고르고, 그 과목의 교과서를 '인정교과서'로 만들고 있습니다. 인정교과서는 국가가 직접 만드는 국정교과서와 달리, 집필진이 만든 책을 시도교육청이 심의해 학교에서 쓸 수 있게 인정하는 교과서입니다.</p>
-  <p>한때 논란이 되었던 'AI 디지털교과서'와는 다른 이야기입니다. 그것은 수학·영어 같은 기존 과목 교과서에 AI 기능을 넣은 디지털 교과서였고, 이번 발표는 AI를 배우는 과목의 교과서를 만드는 일입니다. 두 이름이 비슷해 혼동하기 쉬우니 구분해 두시면 좋겠습니다.</p>
+  <p>한때 논란이 되었던 'AI 디지털교과서'와는 다릅니다. AI 디지털교과서는 수학·영어 같은 기존 과목 교과서에 AI 기능을 넣은 디지털 교과서였고, 이번 발표는 AI를 배우는 과목의 교과서를 만드는 일입니다.</p>
 
-  <h2>언제, 어떻게 만들어지나요?</h2>
+  <h2>2. 2028년 3월까지의 일정</h2>
   <ul class="timeline">
     <li><b>2026년 8월</b>공모로 16개 과목 선정, 집필위원 역량 강화 연수(8월 28~29일)</li>
     <li class="now"><b>2026년 하반기 (지금)</b>현장 교원이 집필하고, 과기정통부가 최신 기술 동향 검토와 연계 교육자료 개발을 지원</li>
     <li><b>2027년 1학기</b>학교 시범 적용, 시도교육청 인정 심의</li>
     <li><b>2028년 3월</b>전국 학교 도입 예정</li>
   </ul>
-  <p>눈여겨볼 점은 집필진입니다. 교육부는 실제 수업 경험과 학교 현장의 요구를 담기 위해 현장 교원이 집필에 참여한다고 밝혔습니다. 교과서가 연구실이 아니라 교실에서 만들어진다는 뜻입니다.</p>
+  <p>집필은 현장 교원이 맡습니다. 교육부는 실제 수업 경험과 학교 현장의 요구를 담기 위해 현장 교원이 집필에 참여한다고 밝혔습니다.</p>
 
-  <h2>학교 AI 교육은 지금 어디로 가고 있나요?</h2>
-  <p>교과서는 큰 그림의 한 조각입니다. 교육부는 2025년 11월 10일 「모두를 위한 AI 인재양성 방안」을 발표했고, 학교와 관련된 내용은 이렇습니다.</p>
+  <h2>3. 학교 AI 교육 정책의 큰 그림</h2>
+  <p>교과서는 큰 그림의 한 조각입니다. 교육부는 2025년 11월 10일 「모두를 위한 AI 인재양성 방안」을 발표했고, 학교와 관련된 내용은 다음과 같습니다.</p>
   <ul class="points">
-    <li><b>AI 중점학교 확대.</b> 발표 당시 730개교였던 AI 중점학교를 2028학년도까지 2,000개교로 늘립니다. 이 학교들은 정보 교과 시수를 더 늘리고 동아리·진로 체험을 운영할 수 있습니다.</li>
-    <li><b>일반 학교의 AI 수업 시간.</b> 교사가 교육과정을 재구성해 정보 교과 안에서 AI 수업 시간을 늘릴 수 있게 했습니다.</li>
-    <li><b>AI 교육지원센터.</b> 학생과 학부모를 위한 센터를 2026년 3개 교육청에서 시작해 2028년까지 17개 시도교육청 전체로 넓힙니다.</li>
-    <li><b>예비교사.</b> 교대·사범대에 AI 교육과정을 만들어 예비교사 때부터 AI 역량을 기릅니다.</li>
+    <li><b>AI 중점학교 확대</b> 발표 당시 730개교였던 AI 중점학교를 2028학년도까지 2,000개교로 늘립니다. 이 학교들은 정보 교과 시수를 더 늘리고 동아리·진로 체험을 운영할 수 있습니다.</li>
+    <li><b>일반 학교의 AI 수업 시간</b> 교사가 교육과정을 재구성해 정보 교과 안에서 AI 수업 시간을 늘릴 수 있게 했습니다.</li>
+    <li><b>AI 교육지원센터</b> 학생과 학부모를 위한 센터를 2026년 3개 교육청에서 시작해 2028년까지 17개 시도교육청 전체로 넓힙니다.</li>
+    <li><b>예비교사</b> 교대·사범대에 AI 교육과정을 만들어 예비교사 때부터 AI 역량을 기릅니다.</li>
   </ul>
-  <p>2026년 8월 19일에는 「AI 온이음」 사업이 새로 나왔습니다. 교육급여 수급 등 취약계층 고등학생과 농어촌 고등학교 학생 약 12만 명에게 유료 생성형 AI 서비스와 단계별 AI 교육을 지원하는 사업입니다. 학생은 AI 윤리와 리터러시 사전 교육을 마쳐야 서비스를 쓸 수 있고, 금칙어 차단 같은 안전장치도 함께 들어갑니다. 학생에게 AI를 쥐여 주기 전에 쓰는 법과 지킬 것을 먼저 가르친다는 순서가 정책 안에 들어간 셈입니다.</p>
+  <p>2026년 8월 19일에는 「AI 온이음」 사업이 새로 나왔습니다. 교육급여 수급 등 취약계층 고등학생과 농어촌 고등학교 학생 약 12만 명에게 유료 생성형 AI 서비스와 단계별 AI 교육을 지원하는 사업입니다. 학생은 AI 윤리와 리터러시 사전 교육을 마쳐야 서비스를 쓸 수 있고, 금칙어 차단 같은 안전장치도 함께 들어갑니다.</p>
 
-  <h2>교육학으로 읽으면</h2>
-  <p>세 발표를 나란히 놓으면 한 방향이 보입니다. AI 교육을 몇몇 학생의 특별 활동에서 모든 학생이 배우는 수업으로 옮기려는 흐름입니다. 이때 성패를 가르는 것은 교과서보다 그 교과서를 들고 교실에 서는 교사라고 봅니다. 교육과정 연구에서는 같은 교과서라도 교사가 어떻게 해석하고 실행하느냐에 따라 학생이 실제로 배우는 것이 달라진다고 말합니다. 현장 교원이 집필에 참여하고, 예비교사 과정부터 AI 역량을 기르겠다는 계획이 함께 나온 이유도 여기서 읽을 수 있습니다.</p>
-  <p>여기서부터는 제 해석입니다. 2028년까지 남은 시간은 교과서를 기다리는 시간이 아니라, 교사가 먼저 AI 수업을 해 보며 감각을 쌓는 시간에 가깝습니다.</p>
+  <h2>4. 교육과정의 눈으로 보면</h2>
+  <p>세 발표를 나란히 놓으면 AI 교육을 몇몇 학생의 특별 활동에서 모든 학생이 배우는 수업으로 옮기려는 흐름이 보입니다. 교육과정 연구에서는 같은 교과서라도 교사가 어떻게 해석하고 실행하느냐에 따라 학생이 실제로 배우는 것이 달라진다고 말합니다. 현장 교원이 집필에 참여하고, 예비교사 과정부터 AI 역량을 기르겠다는 계획이 함께 나온 것도 이 흐름과 맞닿아 있습니다.</p>
+  <div class="note-box"><b>작성자 해석</b> 성패를 가르는 것은 교과서보다 그 교과서를 들고 교실에 서는 교사라고 봅니다. 2028년까지 남은 시간은 교과서를 기다리는 시간이 아니라, 교사가 먼저 AI 수업을 해 보며 감각을 쌓는 시간에 가깝습니다.</div>
 
-  <h2>선생님과 강사는 무엇을 준비하면 좋을까요?</h2>
+  <h2>5. 선생님과 강사가 준비할 것</h2>
   <ol>
-    <li><b>우리 학교가 AI 중점학교인지 확인해 보세요.</b> 중점학교라면 AI 수업과 동아리가 늘어날 가능성이 큽니다. 외부 강사라면 협력 수업을 제안할 자리이기도 합니다.</li>
-    <li><b>지금 가르치는 과목에서 AI 수업 한 차시를 먼저 해 보세요.</b> 교과서가 나오기 전에 작게 해 본 경험이 나중에 교과서를 가장 잘 쓰는 힘이 됩니다.</li>
-    <li><b>AI 윤리와 안전 수업을 먼저 준비하세요.</b> AI 온이음 사업이 사전 교육을 조건으로 둔 것처럼, 개인정보·저작권·출처 확인을 먼저 가르치는 순서가 기본이 되어 갑니다. <a href="../files/ai-class-checklist.pdf">AI 수업 전날 체크리스트(PDF)</a>도 함께 활용해 보세요.</li>
-    <li><b>지역 AI 교육지원센터 소식을 챙겨 보세요.</b> 2028년까지 모든 시도교육청에 생길 예정이라, 연수와 자료가 이곳을 통해 나올 가능성이 큽니다.</li>
+    <li><b>우리 학교가 AI 중점학교인지 확인합니다.</b> 중점학교라면 AI 수업과 동아리가 늘어날 가능성이 큽니다. 외부 강사라면 협력 수업을 제안할 자리이기도 합니다.</li>
+    <li><b>지금 가르치는 과목에서 AI 수업 한 차시를 먼저 해 봅니다.</b> 교과서가 나오기 전에 작게 해 본 경험이 나중에 교과서를 가장 잘 쓰는 힘이 됩니다.</li>
+    <li><b>AI 윤리와 안전 수업을 먼저 준비합니다.</b> AI 온이음 사업이 사전 교육을 조건으로 둔 것처럼, 개인정보·저작권·출처 확인을 먼저 가르치는 순서가 기본이 되어 갑니다. <a href="../files/ai-class-checklist.pdf">AI 수업 전날 체크리스트(PDF)</a>도 함께 쓰면 좋습니다.</li>
+    <li><b>지역 AI 교육지원센터 소식을 챙깁니다.</b> 2028년까지 모든 시도교육청에 생길 예정이라, 연수와 자료가 이곳을 통해 나올 가능성이 큽니다.</li>
   </ol>
 
-  <h2>조심할 점</h2>
-  <p>2028년 3월은 교육부가 밝힌 '예정' 일정입니다. 시범 적용과 인정 심의 결과에 따라 과목이나 일정이 달라질 수 있으니, 새 발표가 나오면 이 글도 함께 고쳐 두겠습니다. 16개 과목의 구체적인 이름과 학교급별 배치는 이번 보도자료 요약에 나오지 않아 여기에는 적지 않았습니다.</p>
+  <h2>지금 챙길 것</h2>
+  <ul class="check">
+    <li>우리 학교나 출강하는 학교가 AI 중점학교인지 확인했다</li>
+    <li>지금 가르치는 과목에서 AI 수업 한 차시를 해 봤다</li>
+    <li>AI 윤리·안전 수업 자료를 하나 준비했다</li>
+    <li>지역 교육청의 AI 교육지원센터 소식을 받아 볼 곳을 찾아 두었다</li>
+  </ul>
 
-  <h2>자주 묻는 질문</h2>
-  <dl class="faq">
-    <dt>Q. AI 교과서는 언제부터 학교에서 쓰나요?</dt>
-    <dd>교육부는 2027년 1학기 시범 적용과 인정 심의를 거쳐 2028년 3월부터 전국 학교에 도입할 예정이라고 밝혔습니다.</dd>
-    <dt>Q. AI 디지털교과서와 같은 건가요?</dt>
-    <dd>다릅니다. 이번 발표는 AI를 배우는 과목의 교과서이고, AI 디지털교과서는 수학·영어 같은 기존 과목 교과서에 AI 기능을 넣은 것이었습니다.</dd>
-    <dt>Q. 누가 교과서를 만드나요?</dt>
-    <dd>현장 교원이 집필진으로 참여하고, 교육부·과학기술정보통신부·10개 시도교육청이 함께 추진합니다.</dd>
-    <dt>Q. AI 중점학교는 몇 곳으로 늘어나나요?</dt>
-    <dd>발표 당시 730개교에서 2028학년도까지 2,000개교로 늘릴 계획입니다.</dd>
-    <dt>Q. AI 온이음은 누구를 위한 사업인가요?</dt>
-    <dd>교육급여 수급 등 취약계층 고등학생과 농어촌 고등학교 학생 약 12만 명이 대상이며, 학교 담당 교사를 통해 신청을 받았습니다.</dd>
-  </dl>
+  <h2>참고 자료</h2>
+  <ol class="sources">
+    <li><a href="https://eiec.kdi.re.kr/policy/materialView.do?num=285876" target="_blank" rel="noopener">교육부 보도자료 「인공지능(AI) 교과, 교원이 주도하여 교육자료부터 인정교과서까지 만든다」</a> (2026.8.27, KDI 경제교육·정보센터 게재)</li>
+    <li><a href="https://www.korea.kr/news/policyNewsView.do?newsId=148954472" target="_blank" rel="noopener">정책브리핑 「전 생애주기 인공지능 보편교육 강화」</a> (2025.11.10)</li>
+    <li><a href="https://www.hangyo.com/news/article.html?no=105797" target="_blank" rel="noopener">한국교육신문 「AI 중점학교 확대, 마이스터고 신규 선정」</a> (2025.11.10)</li>
+    <li><a href="https://eiec.kdi.re.kr/policy/materialView.do?num=285520" target="_blank" rel="noopener">교육부 보도자료 「인공지능(AI) 온이음」</a> (2026.8.19, KDI 경제교육·정보센터 게재)</li>
+  </ol>
+  <p class="src-note">이 글은 위 발표 자료를 2026년 10월 22일에 확인해 정리했습니다. 2028년 3월 도입은 교육부가 밝힌 예정 일정이며, 새 발표가 나오면 이 글도 함께 고칩니다. 공식 발표를 옮긴 부분과 작성자 해석을 본문에서 구분해 표시했습니다.</p>
 
-  <div class="src">
-    출처 (확인일 2026년 10월 22일)
+  <aside class="author">
+    <p class="label">이 글을 쓴 사람</p>
+    <p class="who">이지연 · ezsy 이지</p>
+    <p>AI융합 예술교육가. 중학교 보컬동아리 강사, 안양 지역 초등학교 늘봄 음악놀이 강사, 생성형 AI 강의자, Georgia Central University 대학원 AI융합경영학 박사과정.</p>
+    <div class="btns"><a class="btn" href="../index.html#collab">강의 문의하기</a><a class="btn ghost" href="../index.html#programs">강의 살펴보기</a><a class="btn ghost" href="../news.html">자료실 목록</a></div>
+  </aside>
+
+  <section class="more" aria-label="함께 읽을 글">
+    <p class="more-h">함께 읽을 글</p>
     <ul>
-      <li><a href="https://eiec.kdi.re.kr/policy/materialView.do?num=285876" target="_blank" rel="noopener">교육부 보도자료 「인공지능(AI) 교과, 교원이 주도하여 교육자료부터 인정교과서까지 만든다」, 2026.8.27 (KDI 경제교육·정보센터 게재)</a></li>
-      <li><a href="https://www.korea.kr/news/policyNewsView.do?newsId=148954472" target="_blank" rel="noopener">정책브리핑 「전 생애주기 인공지능 보편교육 강화」, 2025.11.10</a></li>
-      <li><a href="https://www.hangyo.com/news/article.html?no=105797" target="_blank" rel="noopener">한국교육신문 「AI 중점학교 확대, 마이스터고 신규 선정」, 2025.11.10</a></li>
-      <li><a href="https://eiec.kdi.re.kr/policy/materialView.do?num=285520" target="_blank" rel="noopener">교육부 보도자료 「인공지능(AI) 온이음」, 2026.8.19 (KDI 경제교육·정보센터 게재)</a></li>
+      <li><a href="click-on-ai-season2.html">초등학생도 AI를 체험할 수 있을까? 클릭온 AI 시즌2, 11월 25일까지</a><span>AI 교육소식</span></li>
     </ul>
-  </div>
-
-  <div class="author">
-    <b>이지연 · ezsy 이지</b>
-    AI융합 예술교육가. 중학교 보컬동아리 강사, 안양 지역 초등학교 늘봄 음악놀이 강사, 생성형 AI 강의자, Georgia Central University 대학원 AI융합경영학 박사과정.
-  </div>
-
-  <div class="back">
-    <a class="btn ghost" href="../news.html">자료실 목록으로</a>
-    <a class="btn" href="../index.html#collab">강의 문의</a>
-  </div>
+  </section>
 </article>
 </section>
 </main>
