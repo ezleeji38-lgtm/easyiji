@@ -1,0 +1,18 @@
+# ezsy 이지 (이지연)
+
+> AI융합 예술교육가 이지연의 교육 브랜드 홈페이지. 생성형 AI 기초, AI 음악 만들기, AI와 함께 책 만들기, 보컬·뮤지컬, 캘리그라피 수업을 학교와 기관에 제공하고, 이지 자료실에 AI 교육 소식과 수업 자료를 정리합니다.
+
+이지연은 AI융합 예술교육가입니다. 중학교 보컬동아리 강사, 안양 지역 초등학교 늘봄 음악놀이 강사, 생성형 AI 강의자이며 Georgia Central University 대학원 AI융합경영학 박사과정에 재학 중입니다. 전자책 「나의 행운 찾기」와 「AI와 함께하는 여행 기록 설명서」를 펴냈습니다.
+
+## 주요 페이지
+
+- [홈](https://easyiji.netlify.app/): 소개, 프로그램, 음반·음원, 저서, 이력, 강의 문의
+- [이지 자료실](https://easyiji.netlify.app/news.html): AI 소식, 수업 레시피, 무료 자료, AI 도구 체크, 공지
+
+## 자료실 글
+
+- [학교에 AI 교과서가 들어올까? 2028년 3월 도입 예정, 정부 방침 한눈에](https://easyiji.netlify.app/news/ai-textbook-2028.html): 교육부 AI 교과 인정교과서 추진, AI 중점학교 확대, AI 온이음 사업 정리 (2026-10-23)
+
+## Optional
+
+- [AI 수업 전날 체크리스트 PDF](https://easyiji.netlify.app/files/ai-class-checklist.pdf)
