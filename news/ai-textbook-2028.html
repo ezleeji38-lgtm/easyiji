@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&display=swap">
 <link rel="stylesheet" href="../style.css">
 <style>
-/* 노트형 글: 핵심 요약 → 그림 → 한눈에 보기 → 번호 붙은 소제목 → 챙길 것 → 참고 자료 → 쓴 사람 → 함께 읽을 글 */
+/* 노트형 글: 핵심 요약 → 그림 → 한눈에 보기 → 번호 붙은 소제목 → 참고 자료 → 쓴 사람 → 함께 읽을 글 */
 .post{max-width:760px;margin:0 auto}
 .crumb{margin:0 0 12px;font-size:14px;font-weight:700;color:var(--blue)}
 .post h1{font-size:clamp(28px,4.6vw,40px);line-height:1.35;margin:0 0 14px;text-wrap:balance}
@@ -53,11 +53,6 @@
 .timeline li:before{content:"";position:absolute;left:-8px;top:8px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--blue)}
 .timeline li.now:before{background:var(--blue)}
 .timeline b{display:block;color:var(--blue)}
-.note-box{border-left:3px solid var(--blue);background:var(--mist);padding:16px 20px;border-radius:0 12px 12px 0;margin:0 0 24px;font-size:16px;line-height:1.95;color:var(--text)}
-.note-box b{color:var(--ink);margin-right:8px}
-.post .check{list-style:none;padding:0;margin:0 0 24px}
-.post .check li{position:relative;margin:0;padding:12px 0 12px 32px;border-bottom:1px solid var(--line);font-size:16.5px;line-height:1.8}
-.post .check li::before{content:"";position:absolute;left:2px;top:19px;width:14px;height:14px;border:1.5px solid var(--blue);border-radius:4px}
 .post .sources{padding-left:22px;margin:0 0 14px}
 .post .sources li{margin-bottom:8px;font-size:14.5px;line-height:1.75;color:var(--muted)}
 .sources a{color:var(--ink);word-break:break-word}
@@ -170,26 +165,6 @@
   </ul>
   <p>2026년 8월 19일에는 「AI 온이음」 사업이 새로 나왔습니다. 교육급여 수급 등 취약계층 고등학생과 농어촌 고등학교 학생 약 12만 명에게 유료 생성형 AI 서비스와 단계별 AI 교육을 지원하는 사업입니다. 학생은 AI 윤리와 리터러시 사전 교육을 마쳐야 서비스를 쓸 수 있고, 금칙어 차단 같은 안전장치도 함께 들어갑니다.</p>
 
-  <h2>4. 교육과정의 눈으로 보면</h2>
-  <p>세 발표를 나란히 놓으면 AI 교육을 몇몇 학생의 특별 활동에서 모든 학생이 배우는 수업으로 옮기려는 흐름이 보입니다. 교육과정 연구에서는 같은 교과서라도 교사가 어떻게 해석하고 실행하느냐에 따라 학생이 실제로 배우는 것이 달라진다고 말합니다. 현장 교원이 집필에 참여하고, 예비교사 과정부터 AI 역량을 기르겠다는 계획이 함께 나온 것도 이 흐름과 맞닿아 있습니다.</p>
-  <div class="note-box"><b>작성자 해석</b> 성패를 가르는 것은 교과서보다 그 교과서를 들고 교실에 서는 교사라고 봅니다. 2028년까지 남은 시간은 교과서를 기다리는 시간이 아니라, 교사가 먼저 AI 수업을 해 보며 감각을 쌓는 시간에 가깝습니다.</div>
-
-  <h2>5. 선생님과 강사가 준비할 것</h2>
-  <ol>
-    <li><b>우리 학교가 AI 중점학교인지 확인합니다.</b> 중점학교라면 AI 수업과 동아리가 늘어날 가능성이 큽니다. 외부 강사라면 협력 수업을 제안할 자리이기도 합니다.</li>
-    <li><b>지금 가르치는 과목에서 AI 수업 한 차시를 먼저 해 봅니다.</b> 교과서가 나오기 전에 작게 해 본 경험이 나중에 교과서를 가장 잘 쓰는 힘이 됩니다.</li>
-    <li><b>AI 윤리와 안전 수업을 먼저 준비합니다.</b> AI 온이음 사업이 사전 교육을 조건으로 둔 것처럼, 개인정보·저작권·출처 확인을 먼저 가르치는 순서가 기본이 되어 갑니다.</li>
-    <li><b>지역 AI 교육지원센터 소식을 챙깁니다.</b> 2028년까지 모든 시도교육청에 생길 예정이라, 연수와 자료가 이곳을 통해 나올 가능성이 큽니다.</li>
-  </ol>
-
-  <h2>지금 챙길 것</h2>
-  <ul class="check">
-    <li>우리 학교나 출강하는 학교가 AI 중점학교인지 확인했다</li>
-    <li>지금 가르치는 과목에서 AI 수업 한 차시를 해 봤다</li>
-    <li>AI 윤리·안전 수업 자료를 하나 준비했다</li>
-    <li>지역 교육청의 AI 교육지원센터 소식을 받아 볼 곳을 찾아 두었다</li>
-  </ul>
-
   <h2>참고 자료</h2>
   <ol class="sources">
     <li><a href="https://eiec.kdi.re.kr/policy/materialView.do?num=285876" target="_blank" rel="noopener">교육부 보도자료 「인공지능(AI) 교과, 교원이 주도하여 교육자료부터 인정교과서까지 만든다」</a> (2026.8.27, KDI 경제교육·정보센터 게재)</li>
@@ -197,7 +172,7 @@
     <li><a href="https://www.hangyo.com/news/article.html?no=105797" target="_blank" rel="noopener">한국교육신문 「AI 중점학교 확대, 마이스터고 신규 선정」</a> (2025.11.10)</li>
     <li><a href="https://eiec.kdi.re.kr/policy/materialView.do?num=285520" target="_blank" rel="noopener">교육부 보도자료 「인공지능(AI) 온이음」</a> (2026.8.19, KDI 경제교육·정보센터 게재)</li>
   </ol>
-  <p class="src-note">이 글은 위 발표 자료를 2026년 10월 22일에 확인해 정리했습니다. 2028년 3월 도입은 교육부가 밝힌 예정 일정이며, 새 발표가 나오면 이 글도 함께 고칩니다. 공식 발표를 옮긴 부분과 작성자 해석을 본문에서 구분해 표시했습니다.</p>
+  <p class="src-note">이 글은 위 발표 자료를 2026년 10월 22일에 확인해 정리했습니다. 2028년 3월 도입은 교육부가 밝힌 예정 일정이며, 새 발표가 나오면 이 글도 함께 고칩니다.</p>
 
   <aside class="author">
     <p class="label">이 글을 쓴 사람</p>
@@ -217,5 +192,6 @@
 </section>
 </main>
 <footer><div class="wrap foot-base" style="padding-top:0"><span>© 2026 이지연 · ezsy 이지</span><a href="../index.html">홈으로 돌아가기</a></div></footer>
+<script>/* 목록에서 글을 열면 제목이 있는 맨 위부터 보이게 */(function(){if(location.hash)return;var u=0,end=Date.now()+1500;['wheel','touchstart','keydown','mousedown'].forEach(function(e){addEventListener(e,function(){u=1},{once:true,passive:true})});addEventListener('load',function(){end=Math.max(end,Date.now()+800)});(function f(){if(u)return;if(scrollY)scrollTo(0,0);if(Date.now()<end)requestAnimationFrame(f)})()})();</script>
 </body>
 </html>
