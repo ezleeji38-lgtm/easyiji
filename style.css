@@ -170,8 +170,8 @@ h1,h2,h3{color:var(--ink);font-weight:700;letter-spacing:-.025em}
 .al .role{font-size:13px;font-weight:600;color:#9FB3F5}
 .al h3{font-size:18px;margin:6px 0 4px;line-height:1.4;color:#fff}
 .al p{font-size:14px;color:#B9C3DA;margin:0 0 16px;flex:1}
-.credits{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 24px;align-items:start;margin-top:48px;padding-top:40px;border-top:1px solid rgba(255,255,255,.16)}
-.cr h3{font-size:18px;margin:0 0 14px;color:#fff}
+.credits{display:grid;grid-template-columns:repeat(3,1fr);gap:56px 24px;align-items:start;margin-top:56px}
+.cr h3{font-size:18px;margin:0 0 14px;padding-top:16px;border-top:2px solid #9FB3F5;color:#fff}
 .cr h3 small{display:block;font-size:13px;font-weight:400;color:#93A0BE;margin-top:2px;letter-spacing:0}
 .cr ul{list-style:none;margin:0;padding:0}
 .cr li{padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1)}
