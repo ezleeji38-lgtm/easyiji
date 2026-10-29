@@ -11,6 +11,7 @@
 
 ## 자료실 글
 
+- [전화도 예약도 대신 하는 AI 「피클」, 설치 방법과 장단점](https://easyiji.netlify.app/news/pickle-ai-agent.html): AI 에이전트 앱 피클이 대신 하는 일, 아이폰·안드로이드 설치 다섯 단계, 앱스토어 요금표, 개인정보 항목과 사용자 리뷰에 나온 한계 (2026-10-29)
 - [초등학생도 AI를 체험할 수 있을까? 클릭온 AI 시즌2, 11월 25일까지](https://easyiji.netlify.app/news/click-on-ai-season2.html): 과기정통부·교육부 온라인 AI 체험 행사 클릭온 AI 시즌2의 참여 방법, 경품, 프로그램별 권장 연령·기기 정리 (2026-10-23)
 - [AI로 만든 노래도 저작권료를 받을 수 있을까? 2026년 가을 현재 상황 정리](https://easyiji.netlify.app/news/ai-music-royalty-2026.html): 음저협 AI 의심 음원 240억원 저작권료 보류, AI 활용곡 등록 기준 철회, 스포티파이의 AI 음원 정리와 표시 제도, Suno 이용약관 (2026-10-23)
 - [앱을 닫아도 일하는 AI 비서 「Claude Duet」, 챗봇과 무엇이 다른가](https://easyiji.netlify.app/news/claude-duet.html): Anthropic의 상시 AI 에이전트 Claude Duet이 혼자 하는 일과 사람에게 묻는 일, 이용 대상과 요금 (2026-10-23)
