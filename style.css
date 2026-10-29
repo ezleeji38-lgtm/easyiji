@@ -258,6 +258,21 @@ html:has(.nl-dialog[open]){overflow:hidden}
 .nl-x:hover{background:var(--line)}
 @media (max-width:960px){.nl-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.nl-list{grid-template-columns:1fr;gap:16px}.nl-chips{gap:8px;margin-bottom:24px}.nl-chip{font-size:15px;padding:9px 16px}.nl-item h3{font-size:19px}.nl-note{padding:32px 22px 30px}}
+/* 지난 노트: 최신 3건 카드 아래에 분류·제목·날짜를 한 줄씩 */
+.nl-older{margin-top:56px}
+.nl-older-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 16px;padding:0 4px 16px;border-bottom:2px solid var(--ink)}
+.nl-older-head h3{margin:0;font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+.nl-older-head p{margin:0;font-size:14px;color:var(--muted)}
+.nl-pitem{position:relative;display:grid;grid-template-columns:200px minmax(0,1fr) auto;align-items:baseline;gap:4px 24px;padding:20px 4px;border-bottom:1px solid var(--line)}
+.nl-pitem .nl-meta{display:contents}
+.nl-pitem .nl-cat{grid-column:1;grid-row:1;font-size:15px;font-weight:600}
+.nl-pitem time{grid-column:3;grid-row:1;font-size:15px;color:var(--muted);white-space:nowrap}
+.nl-pitem h4{grid-column:2;grid-row:1;margin:0;font-size:17px;font-weight:500;line-height:1.6;color:var(--text)}
+.nl-pitem .nl-read{align-self:auto;margin:0;font-size:inherit;font-weight:inherit;line-height:inherit;color:inherit;text-align:left}
+.nl-pitem .nl-read::after{border-radius:0}
+.nl-pitem:hover .nl-read{color:var(--blue);text-decoration:underline;text-underline-offset:4px}
+.nl-pitem:has(.nl-read:focus-visible){outline:3px solid var(--blue);outline-offset:2px}
+@media (max-width:560px){.nl-older{margin-top:40px}.nl-pitem{grid-template-columns:minmax(0,1fr) auto;padding:16px 2px}.nl-pitem .nl-cat{font-size:14px}.nl-pitem time{grid-column:2;font-size:14px}.nl-pitem h4{grid-column:1/-1;grid-row:2;font-size:16px}}
 .nl-more{margin-top:24px}
 .nl-subwrap{margin-top:40px}
 .nl-sub{background:var(--mist);border:1px solid var(--line);border-radius:var(--r);padding:32px}

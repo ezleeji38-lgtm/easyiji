@@ -23,7 +23,7 @@
       dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
       dlg.addEventListener('close',function(){if(back)back.focus()})}
     if(dlg.open)dlg.close();back=a.querySelector('.nl-read');
-    var w=el('div','nl-note'),x=el('button','nl-x','×'),h=el('h2','',a.querySelector('h3').textContent),fg=a.querySelector('figure.nl-fig'),b=a.querySelector('.nl-body').cloneNode(true);
+    var w=el('div','nl-note'),x=el('button','nl-x','×'),h=el('h2','',a.querySelector('h3,h4').textContent),fg=a.querySelector('figure.nl-fig'),b=a.querySelector('.nl-body').cloneNode(true);
     x.type='button';x.setAttribute('aria-label','닫기');x.onclick=function(){dlg.close()};h.id='nl-note-title';b.hidden=false;
     w.appendChild(x);w.appendChild(a.querySelector('.nl-meta').cloneNode(true));w.appendChild(h);if(fg)w.appendChild(fg.cloneNode(true));w.appendChild(b);
     dlg.innerHTML='';dlg.appendChild(w);if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','')}
@@ -32,27 +32,37 @@
     var items=data.slice().sort(function(a,b){return a.date<b.date?1:a.date>b.date?-1:0}),cur='전체';
     var cats=(window.CATEGORIES||[]).slice();items.forEach(function(n){if(cats.indexOf(n.category)<0)cats.push(n.category)});
     cats=cats.filter(function(c){return items.some(function(n){return n.category===c})}); /* 글이 없는 분류는 첫 글이 올라올 때까지 숨깁니다 */
-    function paint(){list.innerHTML='';
-      var shown=items.filter(function(n){return cur==='전체'||n.category===cur});if(opt.limit)shown=shown.slice(0,opt.limit);
-      if(!shown.length){list.appendChild(el('p','nl-empty','아직 이 분류의 소식이 없습니다.'));return}
-      shown.forEach(function(n){var a=el('article','nl-item');a.id=n.id;
+    /* 지난 노트 줄 목록(opt.older): 최신 opt.feature건(기본 3건)만 카드로 보이고 나머지는 분류·제목·날짜 한 줄씩 아래에 모입니다 */
+    var older=opt.older?document.getElementById(opt.older):null,olderBox=older&&older.closest('.nl-older'),feat=opt.feature||3;
+    function meta(n){var m=el('div','nl-meta');m.appendChild(el('span','nl-cat',n.category));var tm=el('time','',fmt(n.date));tm.setAttribute('datetime',n.date);m.appendChild(tm);return m}
+    function body(n){var b=el('div','nl-body');b.hidden=true;(n.body||[]).forEach(function(p){b.appendChild(el('p','',p))});
+      if(n.link&&/^(https?:\/\/|files\/)/.test(n.link)){var l=el('a','nl-link',(n.linkLabel||'자세히 보기')+' →');l.href=n.link;l.target='_blank';l.rel='noopener';b.appendChild(l)}
+      return b}
+    function card(n){var a=el('article','nl-item');a.id=n.id;
         if(n.image&&/^img\//.test(n.image)){var f=el('figure','nl-fig'),im=el('img');im.src=n.image;im.alt=n.imageAlt||'';im.loading='lazy';im.width=1600;im.height=900;f.appendChild(im);
           if(n.caption)f.appendChild(el('figcaption','',n.caption));a.appendChild(f)}
         else{var cv=el('div','nl-fig nl-cover');cv.setAttribute('aria-hidden','true');cv.appendChild(el('span','',n.category));a.appendChild(cv)} /* 그림이 없는 노트는 분류 이름을 표지로 씁니다 */
-        var m=el('div','nl-meta');m.appendChild(el('span','nl-cat',n.category));var tm=el('time','',fmt(n.date));tm.setAttribute('datetime',n.date);m.appendChild(tm);
-        a.appendChild(m);a.appendChild(el('h3','',n.title));if(n.summary)a.appendChild(el('p','nl-sum',n.summary));
+        a.appendChild(meta(n));a.appendChild(el('h3','',n.title));if(n.summary)a.appendChild(el('p','nl-sum',n.summary));
         /* 노트 읽기: 전체 글 페이지(news/)가 있으면 그 페이지로 가고, 없으면 본문 전체를 창으로 띄웁니다. 카드 어디를 눌러도 같습니다 */
         var page=n.link&&/^news\//.test(n.link),r=el(page?'a':'button','nl-read','노트 읽기 →');r.setAttribute('aria-label',n.title+' 노트 읽기');
         if(page){r.href=n.link;a.appendChild(r)}
-        else{r.type='button';r.setAttribute('aria-haspopup','dialog');r.onclick=function(){openNote(a)};a.appendChild(r);
-          var b=el('div','nl-body');b.hidden=true;(n.body||[]).forEach(function(p){b.appendChild(el('p','',p))});
-          if(n.link&&/^(https?:\/\/|files\/)/.test(n.link)){var l=el('a','nl-link',(n.linkLabel||'자세히 보기')+' →');l.href=n.link;l.target='_blank';l.rel='noopener';b.appendChild(l)}
-          a.appendChild(b)}
-        list.appendChild(a)})}
+        else{r.type='button';r.setAttribute('aria-haspopup','dialog');r.onclick=function(){openNote(a)};a.appendChild(r);a.appendChild(body(n))}
+        return a}
+    function row(n){var a=el('article','nl-pitem');a.id=n.id;a.appendChild(meta(n));
+        var h=el('h4'),page=n.link&&/^news\//.test(n.link),r=el(page?'a':'button','nl-read',n.title);h.appendChild(r);a.appendChild(h);
+        if(page)r.href=n.link;
+        else{r.type='button';r.setAttribute('aria-haspopup','dialog');r.onclick=function(){openNote(a)};a.appendChild(body(n))}
+        return a}
+    function paint(){list.innerHTML='';if(older)older.innerHTML='';
+      var shown=items.filter(function(n){return cur==='전체'||n.category===cur});if(opt.limit)shown=shown.slice(0,opt.limit);
+      if(!shown.length){list.appendChild(el('p','nl-empty','아직 이 분류의 소식이 없습니다.'));if(olderBox)olderBox.hidden=true;return}
+      var rest=older?shown.slice(feat):[];if(older)shown=shown.slice(0,feat);
+      shown.forEach(function(n){list.appendChild(card(n))});
+      if(older){rest.forEach(function(n){older.appendChild(row(n))});if(olderBox)olderBox.hidden=!rest.length}}
     if(chips){chips.innerHTML='';['전체'].concat(cats).forEach(function(c){var btn=el('button','nl-chip',c);btn.type='button';btn.setAttribute('aria-pressed',String(c===cur));btn.setAttribute('data-cat',c);
       btn.onclick=function(){cur=c;chips.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',String(x.getAttribute('data-cat')===cur))});paint()};chips.appendChild(btn)})}
     paint();
-    if(location.hash){var t=document.getElementById(location.hash.slice(1));if(t)setTimeout(function(){t.scrollIntoView({block:'start'});if(list.contains(t)&&t.querySelector('button.nl-read'))openNote(t)},50)}
+    if(location.hash){var t=document.getElementById(location.hash.slice(1));if(t)setTimeout(function(){t.scrollIntoView({block:'start'});if((list.contains(t)||older&&older.contains(t))&&t.querySelector('button.nl-read'))openNote(t)},50)}
   }
   window.renderNews=function(opt){
     var local=window.NEWS||[];draw(opt,local);
