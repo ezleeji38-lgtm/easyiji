@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>구글 &#x27;제미나이 4 카본&#x27; 공개, 지금 쓸 수 있는 사람과 성능·요금 정리 | 이지 자료실</title>
+<link rel="canonical" href="https://easyiji.netlify.app/news/gemini-4-carbon.html">
+<meta name="description" content="구글이 10월 28일 공개한 새 AI 모델 &#x27;제미나이 4 카본&#x27;을 지금 누가 쓸 수 있는지, 아티피셜 애널리시스 평가의 성능 점수와 환각률, 개발자용 API 요금을 구글 공식 블로그와 평가 기관 원문 기준으로 정리했습니다.">
+<meta name="theme-color" content="#F6F7FB">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ezsy 이지">
+<meta property="og:title" content="구글 &#x27;제미나이 4 카본&#x27; 공개, 지금 쓸 수 있는 사람과 성능·요금 정리">
+<meta property="og:description" content="지금은 일부 사이버 방어 전문가만 쓰는 구글 &#x27;제미나이 4 카본&#x27;의 공개 순서, 외부 평가 점수와 환각률, API 요금을 정리했습니다.">
+<meta property="og:url" content="https://easyiji.netlify.app/news/gemini-4-carbon.html">
+<meta property="og:image" content="https://easyiji.netlify.app/img/og-gemini-4-carbon.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="맑은 아침빛이 드는 밝은 사무실 책상에 노트북과 머그잔, 작은 화분이 있고 오른쪽에 &#x27;Gemini 4 Carbon&#x27; 글자와 푸른 결정 그림이 담긴 구글 공식 대표 이미지 카드가 떠 있는 사진 위에 &#x27;구글 제미나이 4 카본 공개, 지금 쓸 수 있는 사람과 성능·요금&#x27; 제목과 &#x27;일부 보안 전문가부터&#x27; 띠가 적힌 이미지">
+<meta property="article:published_time" content="2026-10-29">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://easyiji.netlify.app/img/og-gemini-4-carbon.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&display=swap">
+<link rel="stylesheet" href="../style.css">
+<style>
+/* 노트형 글: 핵심 요약 → 그림 → 한눈에 보기 → 번호 붙은 소제목 → 참고 자료 → 쓴 사람 → 함께 읽을 글 */
+.post{max-width:760px;margin:0 auto}
+.crumb{margin:0 0 12px;font-size:14px;font-weight:700;color:var(--blue)}
+.post h1{font-size:clamp(28px,4.6vw,40px);line-height:1.35;margin:0 0 14px;text-wrap:balance}
+.post .dates{margin:0 0 26px;font-size:14px;line-height:1.7;color:var(--muted)}
+.summary{background:var(--blue-t);border-radius:16px;padding:22px 26px;margin:0 0 32px}
+.summary b{display:block;font-size:14px;letter-spacing:.04em;color:var(--blue);margin-bottom:8px}
+.post .summary ol{margin:0;padding-left:20px;display:grid;gap:8px}
+.post .summary li{margin:0;font-size:16.5px;line-height:1.85;color:var(--ink)}
+.post figure{margin:0 0 32px}
+.post figure img{display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--line)}
+.post figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.facts-wrap{overflow-x:auto;margin-bottom:8px}
+.facts{width:100%;border-collapse:collapse;font-size:16px;line-height:1.7}
+.facts th,.facts td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.facts th{width:24%;color:var(--muted);font-weight:600;white-space:nowrap}
+/* 읽기 편하게: 본문 17px, 줄간격 2.0, 소제목 위에 굵은 선 */
+.post h2{font-size:clamp(23px,3vw,28px);line-height:1.4;margin:60px 0 18px;padding-top:24px;border-top:1.5px solid var(--ink);text-wrap:balance}
+.post p{margin:0 0 22px;font-size:17px;line-height:2}
+.post ol,.post ul.points{padding-left:24px;margin:0 0 26px}
+.post li{margin-bottom:18px;font-size:17px;line-height:1.95}
+.post ol>li>b:first-child,.post ul.points>li>b:first-child{display:block;margin-bottom:4px;color:var(--ink)}
+.post ol:not(.sources)>li a,.facts a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.post .sources{padding-left:22px;margin:0 0 14px}
+.post .sources li{margin-bottom:8px;font-size:14.5px;line-height:1.75;color:var(--muted)}
+.sources a{color:var(--ink);word-break:break-word}
+.sources a:hover{color:var(--blue)}
+.post .src-note{font-size:14px;line-height:1.8;color:var(--muted)}
+.author{margin-top:64px;border:1.5px solid var(--ink);border-radius:20px;padding:26px;display:grid;gap:10px}
+.post .author p{margin:0;font-size:15px;line-height:1.8;color:var(--muted)}
+.post .author .label{font-size:13px;font-weight:700;color:var(--blue)}
+.post .author .who{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+.author .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.more{margin-top:48px}
+.post .more-h{margin:0 0 12px;font-size:20px;font-weight:700;line-height:1.5;color:var(--ink)}
+.more ul{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.post .more li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.6}
+.more li a:hover{color:var(--blue)}
+.more li span{color:var(--muted);font-size:13px;white-space:nowrap}
+.post .cmp th{width:auto;padding:12px 12px}
+.post .cmp td{font-size:15px;padding:12px 12px}
+.post .cmp td:first-child,.post .cmp td:nth-child(2){white-space:nowrap}
+.post .tnote{margin-top:-4px;font-size:14px;line-height:1.8;color:var(--muted)}
+@media (max-width:560px){.summary{padding:20px}.author{padding:22px}.post .more li{flex-direction:column;gap:2px}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://easyiji.netlify.app/#person",
+      "name": "이지연",
+      "alternateName": [
+        "ezsy 이지",
+        "Lee Jiyeon"
+      ],
+      "jobTitle": "AI융합 예술교육가",
+      "description": "AI융합 예술교육가, 중학교 보컬동아리 강사, 초등학교 늘봄 음악놀이 강사, 생성형 AI 강의자, Georgia Central University 대학원 AI융합경영학 박사과정, 한국AI융합연구원 AI연구원",
+      "url": "https://easyiji.netlify.app/"
+    },
+    {
+      "@type": "Article",
+      "headline": "구글 '제미나이 4 카본' 공개, 지금 쓸 수 있는 사람과 성능·요금 정리",
+      "description": "구글이 10월 28일 공개한 새 AI 모델 '제미나이 4 카본'을 지금 누가 쓸 수 있는지, 아티피셜 애널리시스 평가의 성능 점수와 환각률, 개발자용 API 요금을 구글 공식 블로그와 평가 기관 원문 기준으로 정리했습니다.",
+      "datePublished": "2026-10-29",
+      "dateModified": "2026-10-29",
+      "inLanguage": "ko-KR",
+      "image": "https://easyiji.netlify.app/img/og-gemini-4-carbon.jpg",
+      "author": {
+        "@id": "https://easyiji.netlify.app/#person"
+      },
+      "publisher": {
+        "@id": "https://easyiji.netlify.app/#person"
+      },
+      "mainEntityOfPage": "https://easyiji.netlify.app/news/gemini-4-carbon.html",
+      "articleSection": "AI 도구툴"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="top">
+  <nav class="wrap nav" aria-label="주 메뉴">
+    <a class="logo" href="../index.html" aria-label="ezsy 이지 홈"><b class="brand">ezsy<em>이지</em></b><span>by 이지연</span></a>
+    <a class="btn ghost sm" href="../news.html">자료실 목록</a>
+  </nav>
+</header>
+<main>
+<section class="section" style="padding-top:56px">
+<article class="wrap post">
+  <p class="crumb">이지 자료실 · AI 도구툴</p>
+  <h1>구글 '제미나이 4 카본' 공개, 지금 쓸 수 있는 사람과 성능·요금 정리</h1>
+  <p class="dates"><time datetime="2026-10-29">2026년 10월 29일</time> 작성 · 글 이지연 · 구글 공식 블로그(10.28)와 아티피셜 애널리시스 평가(10.28), AI타임스 보도(10.29) 기준</p>
+  <p class="greet">안녕하세요, AI융합 예술교육가 이지쌤 이지연입니다. 구글이 2주 전 내놓은 '제미나이 4 아르곤'에 이어 10월 28일(미국 시간) 새 모델 '제미나이 4 카본'을 공개했습니다. 이 글에는 카본을 지금 누가 쓸 수 있는지, 외부 평가에서 나온 성능과 환각률, 개발자용 요금을 구글 공식 발표와 평가 기관 원문을 기준으로 정리했습니다.</p>
+  <div class="summary">
+    <b>핵심 요약</b>
+    <ol>
+      <li>구글은 10월 28일 '제미나이 4 카본'을 공개하고, 이번 주부터 일부 사이버 방어 전문가에게 먼저 제공한다고 밝혔습니다. 개발자·기업·일반 이용자에게 여는 날짜는 밝히지 않았습니다.</li>
+      <li>외부 평가 기관 아티피셜 애널리시스의 지능 지수(v5.0)에서 59점으로 1위였습니다. 같은 기관의 평가에서 환각률은 아르곤의 4%에서 11%로 올랐고, 기관은 이 수치가 아르곤 다음으로 낮다고 밝혔습니다.</li>
+      <li>개발자용 API 요금은 처음에 입력 100만 토큰당 2달러, 출력 100만 토큰당 10달러이고, 도입 할인 기간이 끝나면 4달러·20달러가 됩니다.</li>
+    </ol>
+  </div>
+
+  <figure>
+    <img src="../img/gemini-4-carbon.webp" alt="맑은 아침빛이 드는 밝은 사무실 책상에 노트북과 머그잔, 작은 화분이 있고 오른쪽에 &#x27;Gemini 4 Carbon&#x27; 글자와 푸른 결정 그림이 담긴 구글 공식 대표 이미지 카드가 떠 있는 사진 위에 &#x27;구글 제미나이 4 카본 공개, 지금 쓸 수 있는 사람과 성능·요금&#x27; 제목과 &#x27;일부 보안 전문가부터&#x27; 띠가 적힌 이미지" width="1600" height="900">
+    <figcaption>AI 생성 배경 이미지 · 오른쪽은 구글 공식 블로그의 제미나이 4 카본 대표 이미지(Google)</figcaption>
+  </figure>
+
+  <div class="facts-wrap"><table class="facts">
+    <tr><th>무엇을</th><td>구글의 새 AI 모델 '제미나이 4 카본(Gemini 4 Carbon)'</td></tr>
+    <tr><th>발표</th><td>2026년 10월 28일(미국 시간), 구글 공식 블로그(코레이 카부쿠오글루 구글 딥마인드 수석부사장)</td></tr>
+    <tr><th>지금 쓰는 사람</th><td>일부 사이버 방어 전문가(이번 주부터), 이어서 페어윈드(Fairwind) 프로그램 협력사로 넓힘</td></tr>
+    <tr><th>일반 공개</th><td>날짜 발표 없음. 개발자·기업·일반 이용자에게는 "가능한 한 빨리" 제공한다고 밝힘</td></tr>
+    <tr><th>API 요금</th><td>처음 입력 100만 토큰당 2달러·출력 10달러, 할인 기간 뒤 4달러·20달러</td></tr>
+    <tr><th>다루는 자료</th><td>입력 텍스트·이미지·영상·음성, 출력 텍스트, 한 번에 100만 토큰(아티피셜 애널리시스 기준)</td></tr>
+  </table></div>
+
+  <h2>1. 카본은 어떤 모델인가</h2>
+  <p>구글은 카본을 자사에서 가장 강력한 모델로 소개하며, 사이버 보안과 오래 이어지는 복잡한 작업에 강하다고 밝혔습니다. 2주 전 출시한 아르곤을 바탕으로 만들었고, 구글 내부 팀에서는 카본이 큰 코드 속 미묘한 버그의 원인을 찾아 고치는 여러 단계 작업을 며칠 동안 이어서 처리했다고 설명했습니다.</p>
+  <p>구글이 밝힌 보안 성능은 취약점 찾기(SEC-bench Pro) 88.2%, 악용 가능성 확인(ExploitGym) 54.8%, 근본 원인 수정(CWE-bench) 71.0%입니다. 구글은 이 외부 평가를 안전장치 없이 측정했다고 밝혔습니다. 또 내부 시험에서 근거 없는 주장을 아르곤보다 약 절반으로 줄였고, 외부 문서에 숨긴 명령으로 AI를 속이는 공격(간접 프롬프트 주입) 평가에서 공격 성공률 0.0%를 기록했다고 밝혔습니다.</p>
+
+  <h2>2. 지금 쓸 수 있는 사람과 공개 순서</h2>
+  <p>구글이 밝힌 순서는 일부 사이버 방어 전문가(이번 주부터) → 페어윈드 프로그램의 신뢰할 수 있는 협력사 → 개발자·기업·일반 이용자입니다. 마지막 단계는 의견을 모으고 안전장치를 다듬은 뒤로, 날짜는 정하지 않았습니다. 구글은 미국 정부의 자발적 출시 전 모델 시험 절차에 참여하고 있다고도 밝혔습니다.</p>
+  <p>구글 딥마인드의 페어윈드 프로그램 안내에 따르면 대상은 정부·국가 사이버 기관, 의료·통신·에너지·금융 같은 핵심 기반시설 운영 기관, 주요 기술 플랫폼이고, 방어용 평가를 연구하는 대학 연구실도 신청할 수 있습니다. 신청하면 심사와 신원 확인을 거칩니다. 10월 29일 확인한 안내에는 제공 모델이 '제미나이 4 아르곤'으로 적혀 있습니다.</p>
+  <p>카본 발표문에는 한국 출시 시기나 제미나이 앱에 언제 들어오는지가 나와 있지 않습니다. 구글코리아 블로그는 10월 13일부터 구글 AI 프로·울트라 구독자가 제미나이 앱에서 아르곤을 쓸 수 있다고 밝혔습니다.</p>
+
+  <h2>3. 외부 평가에서 나온 성능과 환각률</h2>
+  <p>미국의 AI 평가 기관 아티피셜 애널리시스는 10월 28일 카본(추론 강도 '하이' 설정)을 시험한 결과를 공개했습니다. 환각률은 AI가 사실이 아닌 내용을 답한 비율을 말합니다.</p>
+  <div class="facts-wrap"><table class="facts cmp">
+    <thead><tr><th>평가</th><th>카본</th><th>비교</th></tr></thead>
+    <tbody>
+    <tr><td>지능 지수 v5.0</td><td>59점(1위)</td><td>Claude Opus 5.5 58점, GPT-6 Astra 57점, 아르곤 50점</td></tr>
+    <tr><td>코딩 에이전트 지수</td><td>59점(2위)</td><td>Claude Opus 5.5 62점</td></tr>
+    <tr><td>AA-Omniscience 정답률</td><td>58%</td><td>아르곤 48%</td></tr>
+    <tr><td>AA-Omniscience 환각률</td><td>11%</td><td>아르곤 4%, Claude Opus 5.5·GPT-6 Astra 50%</td></tr>
+    </tbody>
+  </table></div>
+  <p class="tnote">GPT-6 Astra 57점, 아르곤 50점·48%는 AI타임스 보도(10월 29일), 나머지는 아티피셜 애널리시스 발표 기준입니다. AI타임스는 지능 지수 평가 대상이 52개 모델이라고 전했습니다.</p>
+  <p>아티피셜 애널리시스는 카본의 환각률이 4%에서 11%로 올랐지만 여전히 아르곤 다음으로 낮은 수치라고 밝혔습니다. 같은 평가에서 카본은 9개 세부 평가 가운데 4개에서 1위였습니다.</p>
+
+  <h2>4. 개발자용 요금</h2>
+  <p>카본의 API 요금은 아르곤과 같은 도입 가격으로, 입력 100만 토큰당 2달러, 출력 100만 토큰당 10달러입니다. 미리 저장해 둔 입력(캐시)은 입력 요금에서 95% 깎아 줍니다. 구글은 도입 기간이 끝나면 입력 4달러, 출력 20달러를 적용한다고 밝혔고, 종료 시점은 밝히지 않았습니다.</p>
+  <p>아티피셜 애널리시스가 표준 요금(4달러·20달러)으로 계산한 지능 지수 작업 1건당 비용은 카본 7.76달러, Claude Opus 5.5(max) 10.04달러, GPT-6 Astra(max) 6.25달러였습니다. 제미나이 앱 같은 일반 이용자용 요금은 발표되지 않았습니다.</p>
+
+  <h2>참고 자료</h2>
+  <ol class="sources">
+    <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/" target="_blank" rel="noopener">Google 공식 블로그 「Gemini 4 Carbon: our next frontier model」</a> (2026.10.28)</li>
+    <li><a href="https://deepmind.google/fairwind-program/" target="_blank" rel="noopener">Google DeepMind 「Fairwind Program」 안내</a> (게시일 표시 없음, 2026.10.29 확인)</li>
+    <li><a href="https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1" target="_blank" rel="noopener">Artificial Analysis 「Gemini 4 Carbon is the new #1 on the Artificial Analysis Intelligence Index v5」</a> (2026.10.28)</li>
+    <li><a href="https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index" target="_blank" rel="noopener">Artificial Analysis Intelligence Index v5.0 순위표</a> (2026.10.29 확인)</li>
+    <li><a href="https://www.aitimes.com/news/articleView.html?idxno=216768" target="_blank" rel="noopener">AI타임스 「구글, 1년 만에 AI 성능 평가 1위 탈환…'제미나이 4 카본' 출시」</a> (2026.10.29)</li>
+    <li><a href="https://blog.google/intl/ko-kr/products/gemini-4-argon-availability-kr/" target="_blank" rel="noopener">구글코리아 블로그 「제미나이 4 아르곤, 이제 제미나이 앱에서 만나보세요」</a> (2026.10.13)</li>
+  </ol>
+  <p class="src-note">이 글은 구글 공식 발표와 아티피셜 애널리시스 평가, 언론 보도를 2026년 10월 29일에 확인해 정리했습니다. 공개 범위와 요금은 확인한 날 기준입니다.</p>
+
+  <aside class="author">
+    <p class="label">이 글을 쓴 사람</p>
+    <p class="who">이지연 · ezsy 이지</p>
+    <p>AI융합 예술교육가, 중학교 보컬동아리 강사, 초등학교 늘봄 음악놀이 강사, 생성형 AI 강의자, Georgia Central University 대학원 AI융합경영학 박사과정, 한국AI융합연구원 AI연구원.</p>
+    <div class="btns"><a class="btn" href="../index.html#collab">강의 문의하기</a><a class="btn ghost" href="../index.html#programs">강의 살펴보기</a><a class="btn ghost" href="../news.html">자료실 목록</a></div>
+  </aside>
+
+  <section class="more" aria-label="함께 읽을 글">
+    <p class="more-h">함께 읽을 글</p>
+    <ul>
+      <li><a href="claude-duet.html">앱을 닫아도 일하는 AI 비서 「Claude Duet」, 챗봇과 무엇이 다른가</a><span>AI 도구툴</span></li>
+      <li><a href="instinct-ai-assistant.html">문자 한 통으로 일하는 AI 비서 「인스팅트」, 시작 방법과 장단점</a><span>AI 도구툴</span></li>
+    </ul>
+  </section>
+</article>
+</section>
+</main>
+<footer><div class="wrap foot-base" style="padding-top:0"><span>© 2026 이지연 · ezsy 이지</span><a href="../index.html">홈으로 돌아가기</a></div></footer>
+<script>/* 목록에서 글을 열면 제목이 있는 맨 위부터 보이게 */(function(){if(location.hash)return;var u=0,end=Date.now()+1500;['wheel','touchstart','keydown','mousedown'].forEach(function(e){addEventListener(e,function(){u=1},{once:true,passive:true})});addEventListener('load',function(){end=Math.max(end,Date.now()+800)});(function f(){if(u)return;if(scrollY)scrollTo(0,0);if(Date.now()<end)requestAnimationFrame(f)})()})();</script>
+</body>
+</html>
