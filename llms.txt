@@ -7,10 +7,11 @@
 ## 주요 페이지
 
 - [홈](https://easyiji.netlify.app/): 소개, 프로그램, 음반·음원, 저서, 이력, 강의 문의
-- [이지 자료실](https://easyiji.netlify.app/news.html): AI 도구툴, AI 교육소식, AI 수업설계, AI 창작, AI 교회사역, 행정, 공지
+- [이지 자료실](https://easyiji.netlify.app/news.html): AI 도구툴, AI 교육소식, AI 수업설계, 수업자료, AI 창작, AI 교회사역, 행정, 공지
 
 ## 자료실 글
 
+- [「나의 브랜드송 만들기」 수업자료 3종 무료 내려받기: 워크북, 수업 슬라이드, 인포그래픽](https://easyiji.netlify.app/news/my-brand-song-class-materials.html): AI로 30초 자기소개 노래를 만드는 중2 보컬동아리 90분 수업 「MY BRAND SONG」의 워크북(PDF)·수업 슬라이드(PPTX 21장, 진행 메모 포함)·인포그래픽(PNG) 무료 내려받기와 자료별 내용, 슬라이드 순서 (2026-10-30)
 - [AI로 만든 장편 영화 '스틸레이', 개봉 8일 관객 5,323명: 숫자로 보는 AI 영화 흥행](https://easyiji.netlify.app/news/steelay-ai-film.html): 생성형 AI 장편 '스틸레이'(10.21 개봉)의 제작 방식, 영화진흥위원회 통합전산망 관객·매출·스크린 수, 투자·배급사 몫 계산, 다른 AI 영화 성적 (2026-10-29)
 - [구글 '제미나이 4 카본' 공개, 지금 쓸 수 있는 사람과 성능·요금 정리](https://easyiji.netlify.app/news/gemini-4-carbon.html): 구글 제미나이 4 카본(10.28 공개)의 공개 순서(사이버 방어 전문가 → 페어윈드 협력사 → 일반), 아티피셜 애널리시스 평가 점수·환각률, API 요금 (2026-10-29)
 - ['2026 아시아 출판 주간' 11월 3~6일, AI 시대 출판을 논의하는 일정과 웹진 정리](https://easyiji.netlify.app/news/asian-publishers-week-2026.html): 한국출판인회의 '2026 아시아 출판 주간'(11.3~6, 서울)의 날짜별 프로그램, 참가 출판인 13명, 웹진 「아시아 출판 인사이트」에 실린 AI·저작권 글 7편, 참가 신청과 문의처 (2026-10-29)
