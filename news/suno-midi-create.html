@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>수노(Suno) MIDI 파일로 곡 시작하기, 쓸 수 있는 요금제와 사용 방법 정리 | 이지 자료실</title>
+<link rel="canonical" href="https://easyiji.netlify.app/news/suno-midi-create.html">
+<meta name="description" content="수노가 11월 4일 곡 만들기 화면에 MIDI 파일을 올려 곡을 시작하는 기능을 내놓았습니다. 쓸 수 있는 요금제와 모드, 사용 순서, 프롬프트로 정하는 것, 지금 알려진 제한을 수노 공식 블로그와 도움말 기준으로 정리했습니다.">
+<meta name="theme-color" content="#F6F7FB">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ezsy 이지">
+<meta property="og:title" content="수노(Suno) MIDI 파일로 곡 시작하기, 쓸 수 있는 요금제와 사용 방법 정리">
+<meta property="og:description" content="수노(Suno)의 MIDI로 곡 시작하기 기능을 쓸 수 있는 요금제, 사용 순서, 프롬프트 예시, 지금 알려진 제한을 정리했습니다.">
+<meta property="og:url" content="https://easyiji.netlify.app/news/suno-midi-create.html">
+<meta property="og:image" content="https://easyiji.netlify.app/img/og-suno-midi-create.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="따뜻한 빛이 드는 작업실 책상에 하얀 미디 건반과 피아노 롤 화면의 노트북이 놓이고 음표와 물결이 떠 있는 사진 위에 &#x27;수노, MIDI로 곡 시작, 내 멜로디에 AI 편곡&#x27; 제목과 &#x27;프로·프리미어 요금제&#x27; 띠가 있고, 오른쪽에 주황·분홍색 Suno 앱 아이콘이 놓인 그림">
+<meta property="article:published_time" content="2026-11-09">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://easyiji.netlify.app/img/og-suno-midi-create.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&display=swap">
+<link rel="stylesheet" href="../style.css">
+<style>
+/* 노트형 글: 핵심 요약 → 그림 → 한눈에 보기 → 번호 붙은 소제목 → 참고 자료 → 쓴 사람 → 함께 읽을 글 */
+.post{max-width:760px;margin:0 auto}
+.crumb{margin:0 0 12px;font-size:14px;font-weight:700;color:var(--blue)}
+.post h1{font-size:clamp(28px,4.6vw,40px);line-height:1.35;margin:0 0 14px;text-wrap:balance}
+.post .dates{margin:0 0 26px;font-size:14px;line-height:1.7;color:var(--muted)}
+.summary{background:var(--blue-t);border-radius:16px;padding:22px 26px;margin:0 0 32px}
+.summary b{display:block;font-size:14px;letter-spacing:.04em;color:var(--blue);margin-bottom:8px}
+.post .summary ol{margin:0;padding-left:20px;display:grid;gap:8px}
+.post .summary li{margin:0;font-size:16.5px;line-height:1.85;color:var(--ink)}
+.post figure{margin:0 0 32px}
+.post figure img{display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--line)}
+.post figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.facts-wrap{overflow-x:auto;margin-bottom:8px}
+.facts{width:100%;border-collapse:collapse;font-size:16px;line-height:1.7}
+.facts th,.facts td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.facts th{width:24%;color:var(--muted);font-weight:600;white-space:nowrap}
+/* 읽기 편하게: 본문 17px, 줄간격 2.0, 소제목 위에 굵은 선 */
+.post h2{font-size:clamp(23px,3vw,28px);line-height:1.4;margin:60px 0 18px;padding-top:24px;border-top:1.5px solid var(--ink);text-wrap:balance}
+.post p{margin:0 0 22px;font-size:17px;line-height:2}
+.post ol,.post ul.points{padding-left:24px;margin:0 0 26px}
+.post li{margin-bottom:18px;font-size:17px;line-height:1.95}
+.post ol>li>b:first-child,.post ul.points>li>b:first-child{display:block;margin-bottom:4px;color:var(--ink)}
+.post ol:not(.sources)>li a,.facts a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.post .sources{padding-left:22px;margin:0 0 14px}
+.post .sources li{margin-bottom:8px;font-size:14.5px;line-height:1.75;color:var(--muted)}
+.sources a{color:var(--ink);word-break:break-word}
+.sources a:hover{color:var(--blue)}
+.post .src-note{font-size:14px;line-height:1.8;color:var(--muted)}
+.author{margin-top:64px;border:1.5px solid var(--ink);border-radius:20px;padding:26px;display:grid;gap:10px}
+.post .author p{margin:0;font-size:15px;line-height:1.8;color:var(--muted)}
+.post .author .label{font-size:13px;font-weight:700;color:var(--blue)}
+.post .author .who{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+.author .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.more{margin-top:48px}
+.post .more-h{margin:0 0 12px;font-size:20px;font-weight:700;line-height:1.5;color:var(--ink)}
+.more ul{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.post .more li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.6}
+.more li a:hover{color:var(--blue)}
+.more li span{color:var(--muted);font-size:13px;white-space:nowrap}
+.post .sched th{width:auto;padding:12px 12px}
+.post .sched td{font-size:15px;padding:12px 12px}
+.post .sched td:first-child{white-space:nowrap}
+@media (max-width:560px){.summary{padding:20px}.author{padding:22px}.post .more li{flex-direction:column;gap:2px}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://easyiji.netlify.app/#person",
+      "name": "이지연",
+      "alternateName": [
+        "ezsy 이지",
+        "Lee Jiyeon"
+      ],
+      "jobTitle": "AI융합 예술교육가",
+      "description": "AI융합 예술교육가, 중학교 보컬동아리 강사, 초등학교 늘봄 음악놀이 강사, 생성형 AI 강의자, Georgia Central University 대학원 AI융합경영학 박사과정, 한국AI융합연구원 AI연구원",
+      "url": "https://easyiji.netlify.app/"
+    },
+    {
+      "@type": "Article",
+      "headline": "수노(Suno) MIDI 파일로 곡 시작하기, 쓸 수 있는 요금제와 사용 방법 정리",
+      "description": "수노가 11월 4일 곡 만들기 화면에 MIDI 파일을 올려 곡을 시작하는 기능을 내놓았습니다. 쓸 수 있는 요금제와 모드, 사용 순서, 프롬프트로 정하는 것, 지금 알려진 제한을 수노 공식 블로그와 도움말 기준으로 정리했습니다.",
+      "datePublished": "2026-11-09",
+      "dateModified": "2026-11-09",
+      "inLanguage": "ko-KR",
+      "image": "https://easyiji.netlify.app/img/og-suno-midi-create.jpg",
+      "author": {
+        "@id": "https://easyiji.netlify.app/#person"
+      },
+      "publisher": {
+        "@id": "https://easyiji.netlify.app/#person"
+      },
+      "mainEntityOfPage": "https://easyiji.netlify.app/news/suno-midi-create.html",
+      "articleSection": "AI 창작"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="top">
+  <nav class="wrap nav" aria-label="주 메뉴">
+    <a class="logo" href="../index.html" aria-label="ezsy 이지 홈"><b class="brand">ezsy<em>이지</em></b><span>by 이지연</span></a>
+    <a class="btn ghost sm" href="../news.html">자료실 목록</a>
+  </nav>
+</header>
+<main>
+<section class="section" style="padding-top:56px">
+<article class="wrap post">
+  <p class="crumb">이지 자료실 · AI 창작</p>
+  <h1>수노(Suno) MIDI 파일로 곡 시작하기, 쓸 수 있는 요금제와 사용 방법 정리</h1>
+  <p class="dates"><time datetime="2026-11-09">2026년 11월 9일</time> 작성 · 글 이지연 · 수노 공식 블로그(11.4)와 수노 도움말(11.9 확인) 기준</p>
+  <p class="greet">안녕하세요, AI융합 예술교육가 이지쌤 이지연입니다. AI 음악 서비스 수노(Suno)가 11월 4일 공식 블로그에서 곡 만들기(Create) 화면에 MIDI 파일을 올려 곡을 시작하는 기능을 소개했습니다. MIDI는 소리는 없이 어떤 음을 언제, 얼마나 길게, 얼마나 세게 치는지 같은 연주 정보만 담은 파일입니다. 이 글에는 쓸 수 있는 사람, 사용 순서, 프롬프트로 정하는 것, 지금 알려진 제한을 수노 공식 블로그와 도움말을 기준으로 정리했습니다.</p>
+  <div class="summary">
+    <b>핵심 요약</b>
+    <ol>
+      <li>수노는 11월 4일 공식 블로그 글 「Start Songs with MIDI」에서 곡 만들기 화면에 MIDI 파일(.mid·.midi)을 올려 곡을 시작하는 기능을 소개했습니다. 프로(Pro)·프리미어(Premier) 구독자가 쓸 수 있고, 도움말에는 컴퓨터의 웹 브라우저에서만 된다고 적혀 있습니다.</li>
+      <li>처음에는 간단 만들기(Simple) 모드와 v6-wild 모델에서만 됩니다. 파일을 곡 만들기 화면에 끌어다 놓거나 '+' 메뉴에서 MIDI를 골라 올리고, 원하는 소리를 프롬프트로 적습니다.</li>
+      <li>도움말은 MIDI가 곡의 뼈대(어떤 음을 언제 칠지)를 정하고, 프롬프트가 장르·악기·분위기·에너지 같은 나머지를 정한다고 설명합니다. 수노는 MIDI 기능을 차차 넓히겠다고 밝혔습니다.</li>
+    </ol>
+  </div>
+
+  <figure>
+    <img src="../img/suno-midi-create.webp" alt="따뜻한 빛이 드는 작업실 책상에 하얀 미디 건반과 피아노 롤 화면의 노트북이 놓이고 음표와 물결이 떠 있는 사진 위에 &#x27;수노, MIDI로 곡 시작, 내 멜로디에 AI 편곡&#x27; 제목과 &#x27;프로·프리미어 요금제&#x27; 띠가 있고, 오른쪽에 주황·분홍색 Suno 앱 아이콘이 놓인 그림" width="1600" height="900">
+    <figcaption>AI 생성 배경 이미지 · 오른쪽은 앱스토어의 Suno 앱 아이콘(Suno Inc.)</figcaption>
+  </figure>
+
+  <div class="facts-wrap"><table class="facts">
+    <tr><th>무엇을</th><td>곡 만들기(Create) 화면에서 MIDI 파일로 곡 시작하기</td></tr>
+    <tr><th>누가 쓰나</th><td>프로·프리미어 구독자, 컴퓨터의 웹 브라우저(수노 도움말)</td></tr>
+    <tr><th>언제</th><td>2026년 11월 4일 수노 공식 블로그 발표</td></tr>
+    <tr><th>받는 파일</th><td>.mid, .midi</td></tr>
+    <tr><th>모드·모델</th><td>간단 만들기(Simple) 모드, v6-wild 모델(출시 때 기준)</td></tr>
+    <tr><th>제한</th><td>파일 크기·곡 길이 제한과 크레딧 소모는 블로그와 도움말에 나와 있지 않음</td></tr>
+    <tr><th>발표</th><td>수노 공식 블로그 「Start Songs with MIDI」, 도움말 「Using MIDI files in Create」</td></tr>
+  </table></div>
+
+  <h2>1. MIDI로 곡을 시작한다는 것은</h2>
+  <p>수노 도움말에 따르면 MIDI 파일에는 소리가 들어 있지 않고, 어떤 음을 언제, 얼마나 길게, 얼마나 세게 연주할지 같은 연주 지시만 들어 있습니다.</p>
+  <p>수노 블로그는 기존의 리믹스(Remix)와 커버(Cover)가 녹음된 소리 파일(WAV·MP3)을 바탕으로 곡을 바꾸는 반면, MIDI는 정확한 음과 타이밍 정보를 주기 때문에 곡을 더 정밀하게 다룰 수 있다고 설명했습니다. 파일에 적힌 음을 그대로 연주하게 할 수도 있고, 파일 속 짧은 선율(모티프)을 새 곡의 출발점으로 쓸 수도 있습니다.</p>
+
+  <h2>2. 사용 순서</h2>
+  <p>수노 도움말과 블로그에 적힌 순서입니다.</p>
+  <ol>
+    <li><b>곡 만들기 화면 열기</b>수노에서 곡 만들기(Create)를 엽니다.</li>
+    <li><b>MIDI 파일 넣기</b>간단 만들기(Simple) 모드에서 첨부 단추로 파일을 고르거나, 파일을 곡 만들기 화면이나 프롬프트 칸에 끌어다 놓습니다. 블로그는 '+' 메뉴에서 MIDI를 고르는 방법도 안내합니다.</li>
+    <li><b>프롬프트 쓰기</b>원하는 소리를 말로 적습니다.</li>
+    <li><b>만들기</b>Create 단추를 누릅니다.</li>
+  </ol>
+
+  <h2>3. 프롬프트로 정하는 것</h2>
+  <p>수노 도움말은 MIDI가 '무엇을 연주할지'를 정하고, 프롬프트가 '어떤 악기로 연주할지'를 정한다고 설명합니다. 그래서 프롬프트에 장르, 악기 구성, 분위기, 에너지를 적고, 특히 악기 이름을 적는 것이 중요하다고 안내합니다. 도움말은 '재즈' 한 단어보다 '늦은 밤, 느슨한, 브러시 드럼'처럼 구체적으로 적는 예를 들었습니다.</p>
+  <p>수노 블로그에 실린 프롬프트 예시를 우리말로 옮기면 다음과 같습니다.</p>
+  <ul class="points">
+    <li>이 MIDI를 현악기·금관악기·목관악기·타악기가 있는 풀 오케스트라로 편곡해 줘.</li>
+    <li>이 MIDI를 피아노 반주가 있는 가스펠 합창으로 바꿔 줘.</li>
+    <li>MIDI 파일의 음과 코드 진행을 그대로 써서 현악 사중주로 바꿔 줘.</li>
+  </ul>
+  <p>도움말에는 수노 스튜디오(Studio)에서 MIDI 음을 박자에 맞춰 정리(퀀타이즈)하거나, 음을 박자에서 살짝 빼 사람이 친 느낌을 내거나, 조와 음계를 바꾸는 기능도 소개돼 있습니다.</p>
+
+  <h2>4. 지금 알려진 제한</h2>
+  <p>블로그와 도움말에 적힌 사용 대상은 프로·프리미어 구독자이고, 도움말에는 컴퓨터의 웹 브라우저에서만 쓸 수 있다고 적혀 있습니다. 출시 때는 간단 만들기 모드와 v6-wild 모델에서만 됩니다.</p>
+  <p>파일 크기, 곡 길이, 트랙 수 제한과 한 번 만들 때 드는 크레딧은 블로그와 도움말에 나와 있지 않습니다. 수노는 MIDI 기능을 차차 넓히겠다고 밝혔고, 구체적인 일정은 적지 않았습니다.</p>
+
+  <h2>참고 자료</h2>
+  <ol class="sources">
+    <li><a href="https://suno.com/blog/MIDI-in-create" target="_blank" rel="noopener">Suno 공식 블로그 「Start Songs with MIDI」</a> (2026.11.4)</li>
+    <li><a href="https://help.suno.com/en/articles/14594177" target="_blank" rel="noopener">Suno 도움말 「Using MIDI files in Create」</a> (2026.11.9 확인)</li>
+  </ol>
+  <p class="src-note">이 글은 수노 공식 블로그 글(11월 4일)과 수노 도움말을 2026년 11월 9일에 확인해 정리했습니다. 블로그에 실린 프롬프트 예시는 영어 원문을 우리말로 옮겼습니다. 요금제별 가격은 이 두 글에 나와 있지 않아 적지 않았습니다.</p>
+
+  <aside class="author">
+    <p class="label">이 글을 쓴 사람</p>
+    <p class="who">이지연 · ezsy 이지</p>
+    <p>AI융합 예술교육가, 중학교 보컬동아리 강사, 초등학교 늘봄 음악놀이 강사, 생성형 AI 강의자, Georgia Central University 대학원 AI융합경영학 박사과정, 한국AI융합연구원 AI연구원.</p>
+    <div class="btns"><a class="btn" href="../index.html#collab">강의 문의하기</a><a class="btn ghost" href="../index.html#programs">강의 살펴보기</a><a class="btn ghost" href="../news.html">자료실 목록</a></div>
+  </aside>
+
+  <section class="more" aria-label="함께 읽을 글">
+    <p class="more-h">함께 읽을 글</p>
+    <ul>
+      <li><a href="ai-music-royalty-2026.html">AI로 만든 노래도 저작권료를 받을 수 있을까? 2026년 가을 현재 상황 정리</a><span>AI 창작</span></li>
+      <li><a href="my-brand-song-class-materials.html">「나의 브랜드송 만들기」 수업자료 3종 무료 내려받기: 워크북, 수업 슬라이드, 인포그래픽</a><span>수업자료</span></li>
+    </ul>
+  </section>
+</article>
+</section>
+</main>
+<footer><div class="wrap foot-base" style="padding-top:0"><span>© 2026 이지연 · ezsy 이지</span><a href="../index.html">홈으로 돌아가기</a></div></footer>
+<script>/* 목록에서 글을 열면 제목이 있는 맨 위부터 보이게 */(function(){if(location.hash)return;var u=0,end=Date.now()+1500;['wheel','touchstart','keydown','mousedown'].forEach(function(e){addEventListener(e,function(){u=1},{once:true,passive:true})});addEventListener('load',function(){end=Math.max(end,Date.now()+800)});(function f(){if(u)return;if(scrollY)scrollTo(0,0);if(Date.now()<end)requestAnimationFrame(f)})()})();</script>
+</body>
+</html>
