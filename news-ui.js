@@ -31,7 +31,7 @@
     var list=document.getElementById(opt.list),chips=document.getElementById(opt.chips);if(!list)return;
     var items=data.slice().sort(function(a,b){return a.date<b.date?1:a.date>b.date?-1:0}),cur='전체';
     var cats=(window.CATEGORIES||[]).slice();items.forEach(function(n){if(cats.indexOf(n.category)<0)cats.push(n.category)});
-    cats=cats.filter(function(c){return items.some(function(n){return n.category===c})}); /* 글이 없는 분류는 첫 글이 올라올 때까지 숨깁니다 */
+    /* 글이 없는 분류도 버튼을 보입니다(2026-11-12). 누르면 '아직 이 분류의 소식이 없습니다.'가 나옵니다 */
     /* 지난 노트 줄 목록(opt.older): 최신 opt.feature건(기본 3건)만 카드로 보이고 나머지는 분류·제목·날짜 한 줄씩 아래에 모입니다 */
     var older=opt.older?document.getElementById(opt.older):null,olderBox=older&&older.closest('.nl-older'),feat=opt.feature||3;
     function meta(n){var m=el('div','nl-meta');m.appendChild(el('span','nl-cat',n.category));var tm=el('time','',fmt(n.date));tm.setAttribute('datetime',n.date);m.appendChild(tm);return m}

@@ -7,10 +7,16 @@
 ## 주요 페이지
 
 - [홈](https://easyiji.netlify.app/): 소개, 프로그램, 음반·음원, 저서, 이력, 강의 문의
-- [이지 자료실](https://easyiji.netlify.app/news.html): AI 도구툴, AI 교육소식, AI 수업설계, 수업자료, AI 창작, AI 교회사역, 행정, 공지
+- [이지 자료실](https://easyiji.netlify.app/news.html): AI 도구, AI 교육, AI 창작, AI 수업, AI 창업, AI 교회·행정, 수업자료
 
 ## 자료실 글
 
+- [클로드 시트·화이트보드 베타 공개, 쓸 수 있는 요금제와 하는 일 정리](https://easyiji.netlify.app/news/claude-sheets-whiteboards-beta.html): 클로드 안에서 쓰는 스프레드시트와 공유 보드가 베타로 나왔습니다. 쓸 수 있는 요금제와 요금, 기기, 내보내기 방법을 정리했습니다. (2026-11-12)
+- [경기도교육청 학생 AI 활용 기준안, 초등은 교사 감독·고교는 출처 공개](https://easyiji.netlify.app/news/gyeonggi-student-ai-guideline.html): 초등은 교사 감독 아래 교육용 AI만, 중학교는 교사가 정한 범위, 고교는 출처 공개와 검증을 전제로. 경기도교육청 공청회 기준안 정리. (2026-11-12)
+- [AI 음악 숏폼 공모전 「전북에 빠졌쏭」 11월 19일 마감, 참가 조건과 제출물](https://easyiji.netlify.app/news/jeonbuk-ai-music-shortform-contest.html): AI 노래에 영상을 붙인 세로형 뮤직숏폼 공모전 「전북에 빠졌쏭」이 11월 19일 마감합니다. 참가 조건과 제출 자료, 시상 내역을 정리했습니다. (2026-11-12)
+- [군산 중학생 2,560명 AI 진로체험, 작곡·게임·티셔츠 디자인 과정 정리](https://easyiji.netlify.app/news/gunsan-middle-school-ai-music-career.html): 군산 18개 중학교 2,560명이 AI로 노래와 게임, 티셔츠 디자인을 만드는 진로체험에 참여합니다. 과정별 내용과 군산시 계획을 정리했습니다. (2026-11-12)
+- ['비즈니스 인 챗GPT' 베타, 회사 정보·상품 가격·재고를 기업이 직접 관리](https://easyiji.netlify.app/news/chatgpt-business-hub-beta.html): 기업이 챗GPT 속 회사 소개와 상품 가격·재고를 직접 관리하는 비즈니스 허브 베타. 이용 대상과 볼 수 있는 수치, 개인정보 원칙을 정리했습니다. (2026-11-12)
+- [목원대·제일신마산교회 목회자 AI 세미나, 설교 자료부터 교회 홈페이지까지](https://easyiji.netlify.app/news/pastor-ai-seminars-2026-11.html): 목원대(70여 명)와 제일신마산교회(60여 명) 목회자 AI 세미나에서 실습한 항목과 12월 3일 AI목회연구소 개소 일정을 정리했습니다. (2026-11-12)
 - [2026 로보월드 11월 4~7일 킨텍스, 402개 기업이 선보인 로봇 정리](https://easyiji.netlify.app/news/robotworld-2026.html): 산업통상부 주최 2026 로보월드(11.4~7, 킨텍스 제1전시장 3~5홀)의 규모(402개 기업·기관, 1,198개 부스), K-로봇 공공프리마켓 참여 기업 22곳, 특별관과 교육용 로봇 체험존, 국제로봇비즈니스컨퍼런스(3개 트랙 36개 세션)와 상담회, 관람 조건 (2026-11-09)
 - [AI 콘텐츠 페스티벌 2026, 11월 11일 사전등록 마감과 오픈클래스 정리](https://easyiji.netlify.app/news/ai-content-festival-2026.html): 문체부·한국콘텐츠진흥원의 AI 콘텐츠 페스티벌 2026(11.12~14, 코엑스 2층 더플라츠)의 사전등록 마감(11.11), 관람 시간, 날짜별 콘퍼런스, 오픈클래스 7개·특별공연 2개 시간표와 공고에 적힌 참여 순서 (2026-11-09)
 - [청소년 AI윤리 ON 캠프, '세종대왕 스마트폰' 틀린 전제 질문과 프로그램 순서 정리](https://easyiji.netlify.app/news/ai-ethics-on-camp-2026.html): SK텔레콤·NIA·NC문화재단·교보교육재단의 제2회 청소년 AI윤리 ON 캠프(10.31, 중학생 60여 명) 프로그램 순서, '세종대왕 스마트폰' 틀린 전제 질문 실습, 조별 콘텐츠와 AI 사용 공개 토론 주제 (2026-11-09)
